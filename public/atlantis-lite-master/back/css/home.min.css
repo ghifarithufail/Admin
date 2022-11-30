@@ -1,0 +1,33 @@
+.container{
+    min-height: 100vh;
+
+}
+
+.kontaner{
+    min-height: 93vh;
+    overflow-x: scroll;
+}
+
+.edit{
+    width: 90px;
+}
+
+.delete{
+    width: 90px;
+}
+.kartu{
+    height: 100px;
+}
+
+.sub-judul{
+    font-size: 20px;
+    align-content: center;
+}
+
+.judul{
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+.contoh{
+    color: red;
+}
