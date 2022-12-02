@@ -19,10 +19,13 @@ class ReportController extends Controller
         $jumlahrelawan = Relawan::count();
 
         if($request->has('search')){
-            $desa = Koord_desa::where('nama','LIKE','%' .$request->search. '%')->withCount('data_relawan')->paginate(20);
+            $desa = Koord_desa::where('nama','LIKE','%' .$request->search. '%')->withCount('data_relawan')->paginate(30);
         }
         else{
-            $desa = Koord_desa::with('data_relawan')->paginate(20);
+            $desa = Koord_desa::with('data_relawan',
+            'Datakelurahans',
+            'Koord_kecamatans')
+                ->paginate(30);
         }
 
         $kelurahan = DataKelurahan::withCount('relawansData')->get();
@@ -36,7 +39,7 @@ class ReportController extends Controller
             $relawan = Relawan::where('user_id','LIKE','%' .$request->search. '%')->paginate(200);
         }
         else{
-            $relawan = Relawan::paginate(200);
+            $relawan = Relawan::with('user','Koord_desas','Datakelurahans')->paginate(200);
         }
         return view('data-relawan', compact('relawan'));
     }
@@ -70,7 +73,7 @@ class ReportController extends Controller
             $kecamatan = Koord_kecamatan::where('nama','LIKE','%' .$request->search. '%')->withCount('relawans')->paginate(50);
         }
         else{
-            $kecamatan = Koord_kecamatan::with('relawans')->paginate(50);
+            $kecamatan = Koord_kecamatan::with('relawans','desas')->paginate(50);
         }
         return view('report.kecamatan',compact('kecamatan'));
     }
@@ -90,7 +93,7 @@ class ReportController extends Controller
             $desa = Koord_desa::where('nama','LIKE','%' .$request->search. '%')->withCount('data_relawan')->paginate(50);
         }
         else{
-            $desa = Koord_desa::with('data_relawan')->paginate(50);
+            $desa = Koord_desa::with('data_relawan','Datakelurahans')->paginate(50);
         }
         return view('report.desa',compact('desa'));
     }
@@ -100,7 +103,7 @@ class ReportController extends Controller
             $desa = Koord_desa::where('deskripsi','LIKE','%' .$request->search. '%')->withCount('data_relawan')->paginate(50);
         }
         else{
-            $desa = Koord_desa::with('data_relawan')->paginate(50);
+            $desa = Koord_desa::with('data_relawan','Datakelurahans')->paginate(50);
         }
         return view('report.desa',compact('desa'));
     }

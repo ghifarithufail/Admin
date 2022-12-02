@@ -19,6 +19,7 @@
                       <div class="card card-dark bg-primary-gradient">
                         <div class="card-body pb-0 kartu">
                           <div class="h1 fw-bold float-right">{{$jumlahuser}}</div>
+                          <i class="fa fa-user fa-2x ml-1"></i>
                           <h2 class="mt-2 sub-judul">USER</h2>
                           <div class="pull-in sparkline-fix chart-as-background">
                             <div id="lineChart"><canvas width="327" height="70" style="display: inline-block; width: 327px; height: 70px; vertical-align: top;"></canvas></div>
@@ -30,6 +31,7 @@
                       <div class="card card-dark bg-secondary-gradient">
                         <div class="card-body pb-0 kartu">
                           <div class="h1 fw-bold float-right">{{$jumlahkecamatan}}</div>
+                          <i class="fa fa-building fa-2x ml-1"></i>
                           <h2 class="mt-1 sub-judul">KOORDINATOR KECAMATAN</h2>
                           <div class="pull-in sparkline-fix chart-as-background">
                             <div id="lineChart2"><canvas width="327" height="70" style="display: inline-block; width: 327px; height: 70px; vertical-align: top;"></canvas></div>
@@ -41,6 +43,7 @@
                       <div class="card card-dark bg-danger-gradient">
                         <div class="card-body pb-0 kartu">
                           <div class="h1 fw-bold float-right">{{$jumlahdesa}}</div>
+                          <i class="fa fa-university fa-2x ml-1"></i>
                           <h2 class="mt-1 sub-judul">KOORDINATOR DESA</h2>
                           <div class="pull-in sparkline-fix chart-as-background">
                             <div id="lineChart3"><canvas width="327" height="70" style="display: inline-block; width: 327px; height: 70px; vertical-align: top;"></canvas></div>
@@ -52,6 +55,7 @@
                       <div class="card card-dark bg-warning-gradient">
                         <div class="card-body pb-0 kartu">
                           <div class="h1 fw-bold float-right">{{$jumlahrelawan}}</div>
+                          <i class="fa fa-users fa-2x ml-1"></i>
                           <h2 class="mt-2 sub-judul">RELAWAN</h2>
                           <div class="pull-in sparkline-fix chart-as-background">
                             <div id="lineChart3"><canvas width="327" height="70" style="display: inline-block; width: 327px; height: 70px; vertical-align: top;"></canvas></div>

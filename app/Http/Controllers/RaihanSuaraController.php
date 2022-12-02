@@ -16,7 +16,7 @@ class RaihanSuaraController extends Controller
             $raihan_suara = RaihanSuara::where('kelurahan_id','LIKE','%' .$request->search. '%')->paginate(20);
         }
         else{
-            $raihan_suara = RaihanSuara::paginate(20);
+            $raihan_suara = RaihanSuara::with('kelurahans','user')->paginate(20);
         }
         return view('raihan_suara.index', compact('raihan_suara'));
     }

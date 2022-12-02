@@ -1,10 +1,6 @@
 <div class="main-header">
     <!-- Logo Header -->
     <div class="logo-header"  style="background-color: red">
-        
-        <a href="index.html" class="logo">
-            <img src="{{asset('atlantis-lite-master\back/img/logo.svg')}}" alt="navbar brand" class="navbar-brand">
-        </a>
         <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse" data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon">
                 <i class="icon-menu"></i>

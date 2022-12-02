@@ -123,6 +123,3 @@ Route::post('/updateKD/{id}',[KoordDesaController::class, 'updateKD'] )->name('u
 
 // //DELETE
 Route::get('/deleteKD/{id}',[KoordDesaController::class, 'deleteKD'] )->name('deleteKD')->middleware('auth','hakakses:admin');;
-
-
-

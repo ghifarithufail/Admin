@@ -15,7 +15,8 @@ class KoordDesaController extends Controller
             $Koord_desa = Koord_desa::where('nama','LIKE','%' .$request->search. '%')-> paginate(30);
         }
         else{
-            $Koord_desa = Koord_desa::paginate(30);
+            $Koord_desa = Koord_desa::with('data_relawan','Koord_kecamatans','Datakelurahans')
+            ->paginate(30);
         }
         return view('koord_desa.index', compact('Koord_desa'));
     }

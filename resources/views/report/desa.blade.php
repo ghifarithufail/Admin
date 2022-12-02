@@ -20,7 +20,7 @@
   
     <div class="card">
         <div class="judul text-center">
-            <h1 class="text-center mb-4 mt-5 text-bold">REPORT KELURAHAN</h1>
+            <h1 class="text-center mb-4 mt-5 text-bold">REPORT DESA</h1>
           </div>
         <div class="card-body mt-2">
           <form action="/report-desa" method="GET">

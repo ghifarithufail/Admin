@@ -18,8 +18,8 @@ class RelawanController extends Controller
             $relawan = Relawan::where('nama','LIKE','%' .$request->search. '%')->paginate(30);
         }
         else{
-            $relawan = Relawan::paginate(30);
-            $relawan = Relawan::with('user')->paginate(30);
+            $relawan = Relawan::with('user','Koord_desas','Datakelurahans')->paginate(30);
+            // $relawan = Relawan::with('user')->paginate(30);
         }
         return view('relawan.index',['relawan' => $relawan], compact('relawan'));
     }

@@ -21,9 +21,6 @@ class User extends Authenticatable
     public function datarelawans(){
         return $this->hasMany(Relawan::class);
     }
-    public function relawans(){
-        return $this->belongsTo(Relawan::class);
-    }
     protected $fillable = [
         'name',
         'email',

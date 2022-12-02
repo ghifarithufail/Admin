@@ -16,13 +16,6 @@
                 </div>
             </div>
             <ul class="nav nav-primary">
-                {{-- <li class="nav-item active">
-                    <a data-toggle="collapse" href="#dashboard" class="collapsed" aria-expanded="false">
-                        <i class="fas fa-home"></i>
-                        <p>Dashboard</p>
-                        <span class="caret"></span>
-                    </a>
-                </li> --}}
                 <li class="nav-section">
                     <span class="sidebar-mini-icon">
                         <i class="fa fa-ellipsis-h"></i>
@@ -121,7 +114,7 @@
                         </ul>
                     </div>
                 </li>
-                <li class="nav-section">
+                {{-- <li class="nav-section">
                     <span class="sidebar-mini-icon">
                         <i class="fa fa-ellipsis-h"></i>
                     </span>
@@ -144,7 +137,7 @@
                         <i class="fa fa-folder"></i>
                         <p>TPS Kecamatan</p>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>
