@@ -31,6 +31,7 @@ Route::post('/pdf-data-relawan', [ReportController::class, 'viewPDF'])->name('vi
 
 //GET
 Route::get('/data-relawan', [ReportController::class, 'dataRelawan'])->middleware('auth','hakakses:admin');;
+Route::get('/data-relawans', [ReportController::class, 'dataRelawans'])->middleware('auth','hakakses:admin');;
 
 // //UPDATE
 Route::get('/relawan-data-update/{id}',[ReportController::class, 'getDataRelawan'])->name('getDataRelawan')->name('getDataRelawan')->middleware('auth','hakakses:admin');;

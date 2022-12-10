@@ -13,11 +13,11 @@
       <div class="judul text-center">
         <h1 class="text-center mb-4 mt-5 text-bold">REPORT KELURAHAN</h1>
       </div>
-      <form action="/report-kelurahan" method="GET">
-        <input type="search" id="inputPassword6" placeholder="Cari Nama Kelurahan" name="search" class="form-control" aria-describedby="passwordHelpInline">
-      </form>
-        <div class="card-body mt-2">
-          <table class="table table-hover">
+      <div class="card-body mt-2">
+        <table class="table table-hover">
+            <form action="/report-kelurahan" method="GET">
+              <input type="search" id="inputPassword6" placeholder="Cari Nama Kelurahan" name="search" class="form-control" aria-describedby="passwordHelpInline">
+            </form>
             <div class="row">
               <thead>
                 <tr>

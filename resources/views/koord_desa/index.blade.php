@@ -13,7 +13,7 @@
     <a href="/koordinator-desa-create" type="button" class="btn btn-success">Tambah +</a>
     <form action="/pdf-kordes" method="POST" target="__blank">
       @csrf
-      <button class="btn btn-dark ml-2">View PDF</button>
+      <button class="btn btn-danger ml-2" style="width: 110px" ><i class="fas fa-file mr-1"></i> PDF</button>
     </form>
   </div>
     <div class="row g-3 align-items-center mt-2">

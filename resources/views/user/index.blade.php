@@ -8,21 +8,18 @@
   <div class="judul text-center">
     <h1 class="text-center mb-4 mt-5 text-bold">Data User</h1>
   </div>
+  <div class="input-group">
     <a href="/register" type="button" class="btn btn-success">Tambah +</a>
-  
     <form action="/pdf-user" method="POST" target="__blank">
       @csrf
-      <button class="btn btn-success mt-3">View PDF</button>
+      <button class="btn btn-danger ml-2" style="width: 110px" ><i class="fas fa-file mr-1"></i> PDF</button>
     </form>
-    <div class="row g-3 align-items-center mt-2">
-      <div class="col-auto">
-        <form action="/user-pdf" method="GET">
-          <input type="search" id="inputPassword6" name="search" class="form-control" aria-describedby="passwordHelpInline">
-        </form>
-      </div>
-    </div>
+  </div>
   
-    <table class="table table-hover">
+  <table class="table table-hover">
+          <form action="/user" method="GET">
+            <input type="search" id="inputPassword6" placeholder="Cari User" name="search" class="form-control mt-3" aria-describedby="passwordHelpInline">
+          </form>
       <div class="row">
         <thead>
           <tr>

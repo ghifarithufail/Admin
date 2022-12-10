@@ -13,7 +13,7 @@
   
       <form action="/pdf-data-relawan" method="POST" target="__blank">
         @csrf
-        <button class="btn btn-success mt-3">View PDF</button>
+        <button class="btn btn-danger" style="width: 110px" ><i class="fas fa-file mr-1"></i> PDF</button>
       </form>
     <div class="row g-3 align-items-center mt-2">
       <div class="col-auto">
@@ -22,9 +22,14 @@
     </div>
   
     <table class="table table-hover" width="100%">
-      <form action="/data-relawan" method="GET">
-        <input type="search" id="inputPassword6" placeholder="Cari data relawan dengan user ID" name="search" class="form-control" aria-describedby="passwordHelpInline">
-      </form>
+      <div class="input-group">
+        <form action="/data-relawans" method="GET">
+          <input type="search" id="inputPassword6" placeholder="Cari Nama Relawan" name="search" class="form-control" aria-describedby="passwordHelpInline">
+        </form>
+        <form action="/data-relawan" method="GET">
+          <input type="search" id="inputPassword6" placeholder="Cari data relawan dengan user ID" name="search" class="form-control ml-3" aria-describedby="passwordHelpInline">
+        </form>
+      </div>
       <div class="row">
         <thead>
           <tr>

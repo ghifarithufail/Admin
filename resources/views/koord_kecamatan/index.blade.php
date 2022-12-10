@@ -14,16 +14,16 @@
       <a href="/koordinator-kecamatan-create" type="button" class="btn btn-success">Tambah +</a>
       <form action="/pdf-korcam" method="POST" target="__blank">
         @csrf
-        <button class="btn btn-dark ml-2" >View PDF</button>
+        <button class="btn btn-danger ml-2" style="width: 110px" ><i class="fas fa-file mr-1"></i> PDF</button>
       </form>
     </div>
     <table class="table table-hover">
       <div class="input-group">
         <form action="/koordinator-kecamatan" method="GET">
-          <input type="search" id="inputPassword6" placeholder="Cari Koordinator Kecamatan" name="search" class="form-control mt-2" aria-describedby="passwordHelpInline">
+          <input type="search" id="inputPassword6" placeholder="Cari Koordinator Kecamatan" name="search" class="form-control mt-3" aria-describedby="passwordHelpInline">
         </form>
         <form action="/koordinator-kecamatan-cari" method="GET">
-          <input type="search" id="inputPassword6" placeholder="Cari Deskripsi Kecamatan" name="search" class="form-control mt-2" aria-describedby="passwordHelpInline">
+          <input type="search" id="inputPassword6" placeholder="Cari Deskripsi Kecamatan" name="search" class="form-control mt-3 ml-2" aria-describedby="passwordHelpInline">
         </form>
       </div>
       <div class="row">

@@ -72,18 +72,6 @@
                     <h4 class="text-section">Report</h4>
                 </li>
                 <li class="nav-item">
-                    <a href="/data-relawan" class="collapsed" aria-expanded="false">
-                        <i class="fa fa-id-card"></i>
-                        <p>Data Relawan</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="/raihan-suara" class="collapsed" aria-expanded="false">
-                        <i class="fa fa-align-left"></i>
-                        <p>Raihan Suara</p>
-                    </a>
-                </li>
-                <li class="nav-item">
                     <a data-toggle="collapse" href="#base">
                         <i class="far fa-chart-bar"></i>
                         <p>Report</p>
@@ -113,6 +101,18 @@
                             </li>
                         </ul>
                     </div>
+                </li>
+                <li class="nav-item">
+                    <a href="/data-relawan" class="collapsed" aria-expanded="false">
+                        <i class="fa fa-id-card"></i>
+                        <p>Data Relawan</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="/raihan-suara" class="collapsed" aria-expanded="false">
+                        <i class="fa fa-align-left"></i>
+                        <p>Raihan Suara</p>
+                    </a>
                 </li>
                 {{-- <li class="nav-section">
                     <span class="sidebar-mini-icon">

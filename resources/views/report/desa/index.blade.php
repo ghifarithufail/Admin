@@ -23,17 +23,17 @@
             <h1 class="text-center mb-4 mt-5 text-bold">REPORT DESA</h1>
           </div>
           <div class="card-body mt-2">
-            {{-- <form action="/pdf-data-Desa" method="POST" target="__blank">
+            <form action="/pdf-data-Desa" method="POST" target="__blank">
               @csrf
               <button class="btn btn-dark mt-3">View PDF</button>
-            </form> --}}
+            </form>
           <table class="table table-hover">
             <div class="input-group">
               <form action="/report-desa" method="GET">
                 <input type="search" id="inputPassword6" placeholder="Cari Koodinator Desa" name="search" class="form-control mt-3" aria-describedby="passwordHelpInline">
               </form>
               <form  action="/report-desa-nama" method="GET">
-                <input type="search" id="inputPassword6" placeholder="Cari Desa" name="search" class="form-control mt-3" aria-describedby="passwordHelpInline">
+                <input type="search" id="inputPassword6" placeholder="Cari Desa" name="search" class="form-control mt-3 ml-3" aria-describedby="passwordHelpInline">
               </form>
             </div>
             <div class="row">

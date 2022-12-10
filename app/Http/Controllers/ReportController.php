@@ -54,10 +54,20 @@ class ReportController extends Controller
 
     public function dataRelawan(Request $request){
         if($request->has('search')){
-            $relawan = Relawan::where('user_id','LIKE','%' .$request->search. '%')->paginate(200);
+            $relawan = Relawan::where('user_id','LIKE','%' .$request->search. '%')->paginate(50);
         }
         else{
-            $relawan = Relawan::with('user','Koord_desas','Datakelurahans')->paginate(200);
+            $relawan = Relawan::with('user','Koord_desas','Datakelurahans')->paginate(50);
+        }
+        return view('data_relawan.index', compact('relawan'));
+    }
+
+    public function dataRelawans(Request $request){
+        if($request->has('search')){
+            $relawan = Relawan::where('nama','LIKE','%' .$request->search. '%')->paginate(50);
+        }
+        else{
+            $relawan = Relawan::with('user','Koord_desas','Datakelurahans')->paginate(50);
         }
         return view('data_relawan.index', compact('relawan'));
     }
@@ -142,7 +152,7 @@ class ReportController extends Controller
     public function viewPDFDesa(){
         $desa = Koord_desa::with('data_relawan','Datakelurahans');
 
-        $pdf = PDF::loadView('report.desa.pdf', ['desa'=>$desa])
+        $pdf = PDF::loadView('report.desa.pdf',compact('desa'))
         ->setPaper('a4','landscape');
         return $pdf->download('data report suara desa.pdf');
     }
