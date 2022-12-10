@@ -13,8 +13,9 @@ class Koord_kecamatan extends Model
     protected $date = ['created_at'];
 
     public function desas(){
-        return $this->hasMany(Koord_desa::class);
+        return $this->hasMany(Koord_desa::class,'Koord_kecamatan_id','id');
     }
+
 
     public function relawans(){
         return $this->hasManyThrough(Relawan::class, Koord_desa::class);

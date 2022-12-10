@@ -22,20 +22,29 @@
         <div class="judul text-center">
             <h1 class="text-center mb-4 mt-5 text-bold">REPORT DESA</h1>
           </div>
-        <div class="card-body mt-2">
-          <form action="/report-desa" method="GET">
-            <input type="search" id="inputPassword6" placeholder="Cari Koodinator Desa" name="search" class="form-control" aria-describedby="passwordHelpInline">
-          </form>
-          <form  action="/report-desa-nama" method="GET">
-            <input type="search" id="inputPassword6" placeholder="Cari Desa" name="search" class="form-control mt-3" aria-describedby="passwordHelpInline">
-          </form>
+          <div class="card-body mt-2">
+            {{-- <form action="/pdf-data-Desa" method="POST" target="__blank">
+              @csrf
+              <button class="btn btn-dark mt-3">View PDF</button>
+            </form> --}}
           <table class="table table-hover">
+            <div class="input-group">
+              <form action="/report-desa" method="GET">
+                <input type="search" id="inputPassword6" placeholder="Cari Koodinator Desa" name="search" class="form-control mt-3" aria-describedby="passwordHelpInline">
+              </form>
+              <form  action="/report-desa-nama" method="GET">
+                <input type="search" id="inputPassword6" placeholder="Cari Desa" name="search" class="form-control mt-3" aria-describedby="passwordHelpInline">
+              </form>
+            </div>
             <div class="row">
               <thead>
                 <tr>
-                  <th scope="col">Kelurahan</th>
+                  <th scope="col">No</th>
                   <th scope="col">Koordinator Desa</th>
+                  <th scope="col">Koordinator Kecamatan</th>
                   <th scope="col">Deskripsi Desa</th>
+                  <th scope="col">Kecamatan</th>
+                  <th scope="col">Kelurahan</th>
                   <th scope="col">Total Relawan</th>
                 </tr>
               </thead>
@@ -43,14 +52,17 @@
               @php
               $no = 1;
               @endphp
-              @foreach ($desa as $data)
+              @foreach ($desa as $data => $row)
               <tr>
-                  <td>{{$data->Datakelurahans->kelurahan}}</td>
-                  <td>{{$data->nama}}</td>
-                  <td>{{$data->deskripsi}}</td>
-                  <td>{{$data->data_relawan->count()}}</td>
-                  @endforeach
-              </tr>
+                <th scope="row">{{$data + $desa->firstItem()}}</th>
+                  <td>{{$row->nama}}</td>
+                  <td>{{$row->Koord_kecamatans->nama}}</td>
+                  <td>{{$row->deskripsi}}</td>
+                  <td>{{$row->Koord_kecamatans->deskripsi}}</td>
+                  <td>{{$row->Datakelurahans->kelurahan}}</td>
+                  <td>{{$row->data_relawan->count()}}</td>
+                </tr>
+                @endforeach
               </tbody>
           </table>
         </div>

@@ -20,6 +20,7 @@ class Koord_desa extends Model
         return $this->hasMany(Relawan::class,'Koord_desa_id','id');
     }
 
+
     public function Datakelurahans(){
         return $this->belongsTo(DataKelurahan::class,'kelurahan_id','id');
 

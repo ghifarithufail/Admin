@@ -10,9 +10,13 @@
   </div>
     <a href="/register" type="button" class="btn btn-success">Tambah +</a>
   
+    <form action="/pdf-user" method="POST" target="__blank">
+      @csrf
+      <button class="btn btn-success mt-3">View PDF</button>
+    </form>
     <div class="row g-3 align-items-center mt-2">
       <div class="col-auto">
-        <form action="/user" method="GET">
+        <form action="/user-pdf" method="GET">
           <input type="search" id="inputPassword6" name="search" class="form-control" aria-describedby="passwordHelpInline">
         </form>
       </div>
@@ -38,7 +42,7 @@
         @endphp
         @foreach ($user as $data => $row)
         <tr>
-            <th scope="row">{{$data + $user->firstItem()}}</th>
+          <th scope="row">{{$data + $user->firstItem()}}</th>
             <td>{{$row->name}}</td>
             <td>{{$row->id}}</td>
             <td>{{$row->email}}</td>

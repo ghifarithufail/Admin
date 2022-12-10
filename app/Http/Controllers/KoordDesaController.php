@@ -3,16 +3,27 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataKelurahan;
-use App\Models\Kelurahan;
 use App\Models\Koord_desa;
 use App\Models\Koord_kecamatan;
 use Illuminate\Http\Request;
+use PDF;
 
 class KoordDesaController extends Controller
 {
     public function koord_desa(Request $request){
         if($request->has('search')){
             $Koord_desa = Koord_desa::where('nama','LIKE','%' .$request->search. '%')-> paginate(30);
+        }
+        else{
+            $Koord_desa = Koord_desa::with('data_relawan','Koord_kecamatans','Datakelurahans')
+            ->paginate(30);
+        }
+        return view('koord_desa.index', compact('Koord_desa'));
+    }
+
+    public function cari(Request $request){
+        if($request->has('search')){
+            $Koord_desa = Koord_desa::where('deskripsi','LIKE','%' .$request->search. '%')-> paginate(30);
         }
         else{
             $Koord_desa = Koord_desa::with('data_relawan','Koord_kecamatans','Datakelurahans')
@@ -42,9 +53,10 @@ class KoordDesaController extends Controller
 
     public function getKoord_desa($id){
         $dataKD = Koord_desa::find($id);
+        $Koord_desa = Koord_desa::with('data_relawan','Koord_kecamatans','Datakelurahans');
         $dataKelurahan = DataKelurahan::all();
         $dataKoord_kecamatan = Koord_kecamatan::all();
-        return view('koord_desa.update', compact('dataKD','dataKoord_kecamatan','dataKelurahan'));
+        return view('koord_desa.update', compact('dataKD','dataKoord_kecamatan','dataKelurahan','Koord_desa'));
     }
 
     public function updateKD($id, Request $request){
@@ -57,5 +69,13 @@ class KoordDesaController extends Controller
         $Koord_desa = Koord_desa::find($id);
         $Koord_desa->delete();
         return redirect()-> route('koord_desa');
+    }
+
+    public function viewPDF(){
+        $Koord_desa = Koord_desa::all();
+
+        $pdf = PDF::loadView('koord_desa.pdf', ['Koord_desa'=>$Koord_desa])
+        ->setPaper('a4','landscape');
+        return $pdf->download('data koord_desa.pdf');
     }
 }

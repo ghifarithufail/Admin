@@ -21,10 +21,12 @@
             <div class="row">
               <thead>
                 <tr>
+                  <th scope="col">No</th>
                   <th scope="col">ID</th>
                   <th scope="col">Kelurahan</th>
                   <th scope="col">Dapil</th>
                   <th scope="col">TPS</th>
+                  <th scope="col">DPT</th>
                   <th scope="col">Target</th>
                   <th scope="col">Total relawan</th>
                 </tr>
@@ -33,14 +35,16 @@
               @php
               $no = 1;
               @endphp
-              @foreach ($kelurahan as $data)
+              @foreach ($kelurahan as $data => $row)
               <tr>
-                  <td>{{$data->id}}</td>
-                  <td>{{$data->kelurahan}}</td>
-                  <td>{{$data->dapil}}</td>
-                  <td>{{$data->tps}}</td>
-                  <td>{{$data->target}}</td>
-                  <td>{{$data->relawansData->count()}}</td>
+                <th scope="row">{{$data + $kelurahan->firstItem()}}</th>
+                  <td>{{$row->id}}</td>
+                  <td>{{$row->kelurahan}}</td>
+                  <td>{{$row->dapil}}</td>
+                  <td>{{$row->tps}}</td>
+                  <td>{{$row->jumlah}}</td>
+                  <td>{{$row->target}}</td>
+                  <td>{{$row->relawansData->count()}}</td>
                   @endforeach
               </tr>
               </tbody>

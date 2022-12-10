@@ -8,8 +8,14 @@
   <div class="judul text-center">
     <h1 class="text-center mb-4 mt-5 text-bold">Raihan Suara</h1>
   </div>
+
+  <div class="input-group">
     <a href="/raihan-suara-create" type="button" class="btn btn-success">Tambah +</a>
-  
+    <form action="/pdf-raihan-suara" method="POST" target="__blank">
+      @csrf
+      <button class="btn btn-dark ml-2">View PDF</button>
+    </form>
+  </div>
     <div class="row g-3 align-items-center mt-2">
       <div class="col-auto">
       </div>
@@ -22,11 +28,14 @@
       <div class="row">
         <thead>
           <tr>
+            <th scope="col">No</th>
             <th scope="col">Kelurahan</th>
             <th scope="col">Dapil</th>
             <th scope="col">TPS</th>
-            <th scope="col">Jumlah</th>
+            <th scope="col">DPT</th>
             <th scope="col">Target</th>
+            <th scope="col">jumlah relawan</th>
+            <th scope="col">JML Suara</th>
             <th scope="col">Pembuat</th>
             <th scope="col">Waktu</th>
             {{-- <th scope="col">Aksi</th> --}}
@@ -38,11 +47,14 @@
         @endphp
         @foreach ($raihan_suara as $data => $row)
         <tr>
+            <th scope="row">{{$data + $raihan_suara->firstItem()}}</th>
             <td>{{$row->kelurahans->kelurahan}}</td>
             <td>{{$row->kelurahans->dapil}}</td>
             <td>{{$row->kelurahans->tps}}</td>
-            <td>{{$row->jumlah_suara}}</td>
+            <td>{{$row->kelurahans->jumlah}}</td>
             <td>{{$row->kelurahans->target}}</td>
+            <td>{{$row->datarelawans->count()}}</td>
+            <td>{{$row->jumlah_suara}}</td>
             <td>{{$row->user->name}}</td>
             <td>{{$row->created_at->format ('D d-M-Y H:i:s')}}</td>
         </tr>

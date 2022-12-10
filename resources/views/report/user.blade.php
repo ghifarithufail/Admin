@@ -30,7 +30,9 @@
             <div class="row">
               <thead>
                 <tr>
+                  <th scope="col">No</th>
                   <th scope="col">User</th>
+                  <th scope="col">Role</th>
                   <th scope="col">Total relawan</th>
                 </tr>
               </thead>
@@ -38,10 +40,12 @@
               @php
               $no = 1;
               @endphp
-              @foreach ($user as $data)
+              @foreach ($user as $data => $row)
               <tr>
-                  <td>{{$data->name}}</td>
-                  <td>{{$data->datarelawans->count() }}</td>
+                <th scope="row">{{$data + $user->firstItem()}}</th>
+                  <td>{{$row->name}}</td>
+                  <td>{{$row->role}}</td>
+                  <td>{{$row->datarelawans->count() }}</td>
                   @endforeach
               </tr>
               </tbody>

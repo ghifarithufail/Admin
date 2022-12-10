@@ -11,6 +11,10 @@
     </div>
     <div class="card-body mt-2">
   
+      <form action="/pdf-data-relawan" method="POST" target="__blank">
+        @csrf
+        <button class="btn btn-success mt-3">View PDF</button>
+      </form>
     <div class="row g-3 align-items-center mt-2">
       <div class="col-auto">
         
@@ -24,7 +28,7 @@
       <div class="row">
         <thead>
           <tr>
-            {{-- <th scope="col">No</th> --}}
+            <th scope="col">No</th>
             <th scope="col">Nama</th>
             <th scope="col">Pembuat</th>
             <th scope="col">NIK</th>
@@ -52,7 +56,7 @@
         @foreach ($relawan as $data => $row)
         {{-- @if ($row->user->id == Auth::user()->id) --}}
         <tr>
-            {{-- <th scope="row">{{$data + $relawan->firstItem()}}</th> --}}
+          <th scope="row">{{$data + $relawan->firstItem()}}</th>
             <td>{{$row->nama}}</td>
             <td>{{$row->user->name}}</td>
             <td>{{$row->nik}}</td>

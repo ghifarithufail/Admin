@@ -33,7 +33,7 @@
                         <select name="kelurahan_id" class="form-control" aria-label="Default select example">
                           <option selected>Pilih Kelurahan</option>
                           @foreach ($dataKelurahan as $data)
-                              <option value="{{$data->id}}">{{$data->kelurahan}}</option>
+                              <option value="{{$data->id}}">{{$data->kelurahan}} - {{$data->tps}}</option>
                           @endforeach
                         </select>
                       </div>

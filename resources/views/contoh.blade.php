@@ -3,21 +3,31 @@
 <link rel="stylesheet" href="{{asset('atlantis-lite-master\back/css/home.min.css')}}">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-<div class="kontaner ml-3">
-
-  <div class="judul text-center">
-    <h1 class="text-center mb-4 mt-5 text-bold">Relawan</h1>
-  </div>
-    <a href="/relawan-create" type="button" class="btn btn-success">Tambah +</a>  
-    <table class="table table-hover">
-      <div class="row text-center">
-        <form action="/relawan" method="GET">
-          <input type="search" id="inputPassword6" placeholder="Cari Relawan" name="search" class="form-control ml-3 mt-3" aria-describedby="passwordHelpInline">
-        </form>
+<div class="card">
+  <div class="kontaner ml-3">
+    
+    <div class="judul text-center">
+      <h1 class="text-center mb-4 mt-5 text-bold">Data Relawan</h1>
+    </div>
+    <div class="card-body mt-2">
+  
+    <div class="row g-3 align-items-center mt-2">
+      <div class="col-auto">
+        
+      </div>
+    </div>
+  
+    <table class="table table-hover" width="100%">
+      <form action="/contoh" method="GET">
+        <input type="search" id="inputPassword6" placeholder="Cari data relawan dengan user ID" name="search" class="form-control" aria-describedby="passwordHelpInline">
+      </form>
+      <div class="row">
         <thead>
           <tr>
             <th scope="col">No</th>
+            <th scope="col">ID</th>
             <th scope="col">Nama</th>
+            {{-- <th scope="col">Pembuat</th> --}}
             <th scope="col">NIK</th>
             <th scope="col">KK</th>
             <th scope="col">Tempat Lahir</th>
@@ -28,12 +38,10 @@
             <th scope="col">RT</th>
             <th scope="col">RW</th>
             <th scope="col">TPS</th>
-            <th scope="col">Koordinator Kecamatan</th>
             <th scope="col">Kelurahan</th>
             <th scope="col">Koordinator Desa</th>
-            <th scope="col">Desa</th>
+            <th scope="col">Koordinator Kecamatan</th>
             <th scope="col">Verifikasi</th>
-            <th scope="col">Dibuat</th>
             <th scope="col">Waktu</th>
             <th scope="col">Aksi</th>
           </tr>
@@ -42,10 +50,11 @@
         @php
         $no = 1;
         @endphp
-        @foreach ($relawan as $data => $row)
-        @if ($row->user->id == Auth::user()->id)
+        @foreach ($contoh as $data => $row)
+        {{-- @if ($row->user->id == Auth::user()->id) --}}
         <tr>
-          <th scope=>{{$data + $relawan ->firstItem()}}</th>
+            <th scope="row">{{$data + $contoh->firstItem()}}</th>
+            <td>{{$row->id}}</td>
             <td>{{$row->nama}}</td>
             <td>{{$row->nik}}</td>
             <td>{{$row->nokk}}</td>
@@ -57,22 +66,22 @@
             <td>{{$row->rt}}</td>
             <td>{{$row->rw}}</td>
             <td>{{$row->tps}}</td>
-            <td>{{$row->Koord_desas->Koord_kecamatans->nama}}</td>
-            <td>{{$row->Datakelurahans->kelurahan}}</td>
-            <td>{{$row->Koord_desas->nama}}</td>
-            <td>{{$row->Koord_desas->deskripsi}}</td>
+            <td>{{$row->kelurahan_id}}</td>
+            <td>{{$row->kelurahan_id}}</td>
             <td>{{$row->is_visible}}</td>
-            <td>{{$row->user->name}}</td>
-            <td>{{$row->created_at->format ('D d-M-Y H:i:s')}}</td>
+            {{-- <td>{{$row->created_at->format ('D d-M-Y H:i:s')}}</td> --}}
             <td>
-                <a href="/relawan-update/{{$row->id}}" class="btn btn-warning edit m-1">Edit</a>
-                <a href="#" class="btn btn-danger delete m-1" data-id="{{$row->id}}" data-calon="{{$row->nama}}">Delete</a>
+                <a href="/relawan-data-update/{{$row->id}}" class="btn btn-warning edit m-1">Edit</a>
+                {{-- <a href="#" class="btn btn-danger delete m-1" data-id="{{$row->id}}" data-calon="{{$row->nama}}">Delete</a> --}}
             </td>
         </tr>
-          @endif
+          {{-- @endif --}}
          @endforeach
         </tbody>
     </table>
+    {{$contoh->links()}}
+  </div>
+  </div>
 
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
@@ -109,5 +118,5 @@
             toastr.success('{{ Session::get('sukses') }}')
         @endif
     </script>
-{{$relawan->links()}}
+
 @endsection

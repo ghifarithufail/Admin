@@ -8,17 +8,24 @@
   <div class="judul text-center">
     <h1 class="text-center mb-4 mt-5 text-bold">Koordinator Kecamatan</h1>
   </div>
-    <a href="/koordinator-kecamatan-create" type="button" class="btn btn-success">Tambah +</a>
-  
-    <div class="row g-3 align-items-center mt-2">
-      <div class="col-auto">
+    {{-- <a href="/koordinator-kecamatan-create" type="button" class="btn btn-success">Tambah +</a> --}}
+
+    <div class="input-group">
+      <a href="/koordinator-kecamatan-create" type="button" class="btn btn-success">Tambah +</a>
+      <form action="/pdf-korcam" method="POST" target="__blank">
+        @csrf
+        <button class="btn btn-dark ml-2" >View PDF</button>
+      </form>
+    </div>
+    <table class="table table-hover">
+      <div class="input-group">
         <form action="/koordinator-kecamatan" method="GET">
-          <input type="search" id="inputPassword6" name="search" class="form-control" aria-describedby="passwordHelpInline">
+          <input type="search" id="inputPassword6" placeholder="Cari Koordinator Kecamatan" name="search" class="form-control mt-2" aria-describedby="passwordHelpInline">
+        </form>
+        <form action="/koordinator-kecamatan-cari" method="GET">
+          <input type="search" id="inputPassword6" placeholder="Cari Deskripsi Kecamatan" name="search" class="form-control mt-2" aria-describedby="passwordHelpInline">
         </form>
       </div>
-    </div>
-  
-    <table class="table table-hover">
       <div class="row">
         <thead>
           <tr>

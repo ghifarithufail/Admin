@@ -8,26 +8,38 @@
   <div class="judul text-center">
     <h1 class="text-center mb-4 mt-5 text-bold">Koordinator Desa</h1>
   </div>
+
+  <div class="input-group">
     <a href="/koordinator-desa-create" type="button" class="btn btn-success">Tambah +</a>
-  
+    <form action="/pdf-kordes" method="POST" target="__blank">
+      @csrf
+      <button class="btn btn-dark ml-2">View PDF</button>
+    </form>
+  </div>
     <div class="row g-3 align-items-center mt-2">
       <div class="col-auto">
-        <form action="/koordinator-desa" method="GET">
-          <input type="search" id="inputPassword6" name="search" class="form-control" aria-describedby="passwordHelpInline">
-        </form>
       </div>
     </div>
-  
+    
     <table class="table table-hover">
+      <div class="input-group">
+        <form action="/koordinator-desa" method="GET">
+          <input type="search" id="inputPassword6" placeholder="Cari Koordinator Desa" name="search" class="form-control" aria-describedby="passwordHelpInline">
+        </form>
+        <form action="/koordinator-desa-cari" method="GET">
+          <input type="search" id="inputPassword6" placeholder="Cari Desa" name="search" class="form-control" aria-describedby="passwordHelpInline">
+        </form>
+      </div>
       <div class="row">
         <thead>
           <tr>
             <th scope="col">No</th>
             <th scope="col">Nama</th>
-            <th scope="col">Koordinator Kecamatan</th>
-            <th scope="col">Deskripsi Kecamatan</th>
-            <th scope="col">Kelurahan</th>
+            {{-- <th scope="col">Koordinator Kecamatan</th> --}}
             <th scope="col">Deskripsi</th>
+            <th scope="col">Kelurahan</th>
+            <th scope="col">TPS</th>
+            <th scope="col">Deskripsi Kecamatan</th>
             <th scope="col">Dapil</th>
             <th scope="col">Waktu</th>
             <th scope="col">Aksi</th>
@@ -39,12 +51,13 @@
         @endphp
         @foreach ($Koord_desa as $data => $row)
         <tr>
-            <th scope="row">{{$data + $Koord_desa->firstItem()}}</th>
+          <th scope="row">{{$data + $Koord_desa->firstItem()}}</th>
             <td>{{$row->nama}}</td>
-            <td>{{$row->Koord_kecamatans->nama}}</td>
-            <td>{{$row->Koord_kecamatans->deskripsi}}</td>
-            <td>{{$row->Datakelurahans->kelurahan}}</td>
+            {{-- <td>{{$row->Koord_kecamatans->nama}}</td> --}}
             <td>{{$row->deskripsi}}</td>
+            <td>{{$row->Datakelurahans->kelurahan}}</td>
+            <td>{{$row->Datakelurahans->tps}}</td>
+            <td>{{$row->Koord_kecamatans->deskripsi}}</td>
             <td>{{$row->dapil}}</td>
             <td>{{$row->created_at->format ('D d-M-Y H:i:s')}}</td>
             <td>

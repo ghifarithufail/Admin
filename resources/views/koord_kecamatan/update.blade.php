@@ -32,6 +32,8 @@
                         <input type="text" name="dapil" value="{{$dataKK->dapil}}" placeholder="Masukan Nama Calon" class="form-control"  aria-describedby="emailHelp">
                         <div id="emailHelp" class="form-text">
                     </div>
+
+                    
             
                     <button type="submit" class="btn  form-control text-white" style="background-color: red">Submit</button>
                 </form>

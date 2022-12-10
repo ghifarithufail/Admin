@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use PDF;
 
 class LoginController extends Controller
 {
@@ -74,5 +75,13 @@ class LoginController extends Controller
         $user = User::find($id);
         $user->delete();
         return redirect('/user');
+    }
+
+    public function viewPDF(){
+        $user = User::all();
+
+        $pdf = PDF::loadView('user.pdf', ['user'=>$user])
+        ->setPaper('a4','landscape');
+        return $pdf->download('data user.pdf');
     }
 }

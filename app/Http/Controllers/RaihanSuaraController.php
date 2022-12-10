@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\DataKelurahan;
-use App\Models\Kelurahan;
 use App\Models\RaihanSuara;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PDF;
 
 class RaihanSuaraController extends Controller
 {
@@ -16,7 +16,7 @@ class RaihanSuaraController extends Controller
             $raihan_suara = RaihanSuara::where('kelurahan_id','LIKE','%' .$request->search. '%')->paginate(20);
         }
         else{
-            $raihan_suara = RaihanSuara::with('kelurahans','user')->paginate(20);
+            $raihan_suara = RaihanSuara::with('kelurahans','user','datarelawans')->paginate(20);
         }
         return view('raihan_suara.index', compact('raihan_suara'));
     }
@@ -40,5 +40,13 @@ class RaihanSuaraController extends Controller
         
         $raihan_suara->save();
         return Redirect()->route('raihan_suara')->with('sukses','data berhasill ditambahkan');;
+    }
+
+    public function viewPDF(){
+        $raihan_suara = RaihanSuara::all();
+
+        $pdf = PDF::loadView('raihan_suara.pdf', ['raihan_suara'=>$raihan_suara])
+        ->setPaper('a4','landscape');
+        return $pdf->download('data raihan_suara.pdf');
     }
 }

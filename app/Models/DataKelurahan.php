@@ -12,4 +12,8 @@ class DataKelurahan extends Model
     public function relawansData(){
         return $this->hasMany(Relawan::class,'kelurahan_id','id');
     }
+
+    public function datarelawans(){
+        return $this->hasMany(Relawan::class);
+    }
 }

@@ -11,7 +11,7 @@
                     @csrf
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Nama</label>
-                        <input type="text" name="nama" placeholder="Masukan Nama Anda" class="form-control"  aria-describedby="emailHelp">
+                        <input type="text" for="floatingInput" name="nama" placeholder="Masukan Nama Anda" class="form-control"  aria-describedby="emailHelp">
                         @error('nama')
                             <div class="alert alert-danger">{{ $message = 'Nama harus di isi'}}</div>
                         @enderror

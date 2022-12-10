@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Contoh;
 use App\Models\DataKelurahan;
-use App\Models\Kelurahan;
 use App\Models\Koord_desa;
 use App\Models\Koord_kecamatan;
 use App\Models\Relawan;
@@ -70,7 +70,7 @@ class RelawanController extends Controller
     }
 
     public function findRelawan(){
-        $p = Koord_kecamatan::all();
+        $p = Contoh::all();
 
         return response()->json($p);
     }
@@ -79,7 +79,7 @@ class RelawanController extends Controller
         $data = relawan::find($id);
         $desa = Koord_desa::all();
         $datakelurahan = DataKelurahan::all();
-        return view('data-relawanUpdate', compact('data'),compact('desa'),compact('datakelurahan'));
+        return view('relawan.update', compact('data'),compact('desa'),compact('datakelurahan'));
     }
 
     public function udpateR($id, Request $request){

@@ -13,6 +13,10 @@ class RaihanSuara extends Model
     public function kelurahans(){
         return $this->belongsTo(DataKelurahan::class,'kelurahan_id','id');
     }
+    
+    public function datarelawans(){
+        return $this->hasMany(Relawan::class,'kelurahan_id','id');
+    }
 
     public function user(){
         return $this->belongsTo(User::class);

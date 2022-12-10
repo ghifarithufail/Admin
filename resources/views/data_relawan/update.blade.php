@@ -34,15 +34,21 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Statu</label>
-                        <input type="text" name="status" id="status" value="{{$data->status}}" placeholder="Masukan Status " class="form-control"  aria-describedby="emailHelp">
-                        <div id="emailHelp" class="form-text">
+                        <label for="exampleInputEmail1" class="form-label">status</label>
+                        <select name="status" class="form-control" aria-label="Default select example">
+                          <option value="{{$data->status}}">-- {{$data->status}} --</option>
+                          <option value="Kawin">Kawin</option>
+                          <option value="Belum Kawin">Belum Kawin</option>
+                        </select>
                     </div>
 
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Jenis</label>
-                        <input type="text" name="jenis" id="jenis" value="{{$data->jenis}}" placeholder="Masukan Jenis" class="form-control"  aria-describedby="emailHelp">
-                        <div id="emailHelp" class="form-text">
+                        <select name="jenis" class="form-control" aria-label="Default select example">
+                          <option value="{{$data->jenis}}">-- {{$data->jenis}} --</option>
+                          <option value="Pria">Pria</option>
+                              <option value="Perempuan">Perempuan</option>
+                        </select>
                     </div>
 
                     <div class="mb-3">
@@ -79,11 +85,11 @@
                         </select>
                       </div> --}}
 
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">is_visible</label>
                         <input type="text" name="is_visible" id="is_visible" value="{{$data->is_visible}}" placeholder="Masukan is_visible" class="form-control"  aria-describedby="emailHelp">
                         <div id="emailHelp" class="form-text">
-                    </div>
+                    </div> --}}
 
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Verifikasi</label>
