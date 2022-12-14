@@ -45,8 +45,6 @@ class RaihanSuaraController extends Controller
     public function viewPDF(){
         $raihan_suara = RaihanSuara::all();
 
-        $pdf = PDF::loadView('raihan_suara.pdf', ['raihan_suara'=>$raihan_suara])
-        ->setPaper('a4','landscape');
-        return $pdf->download('data raihan_suara.pdf');
+        return view('raihan_suara.pdf', compact('raihan_suara'));
     }
 }

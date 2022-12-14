@@ -79,9 +79,6 @@ class LoginController extends Controller
 
     public function viewPDF(){
         $user = User::all();
-
-        $pdf = PDF::loadView('user.pdf', ['user'=>$user])
-        ->setPaper('a4','landscape');
-        return $pdf->download('data user.pdf');
+        return view('user.pdf', compact('user'));
     }
 }

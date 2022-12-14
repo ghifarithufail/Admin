@@ -40,8 +40,8 @@
         @foreach ($user as $data => $row)
         <tr>
           <th scope="row">{{$data + $user->firstItem()}}</th>
-            <td>{{$row->name}}</td>
-            <td>{{$row->id}}</td>
+          <td>{{$row->name}}</td>
+          <td>{{$row->id}}</td>
             <td>{{$row->email}}</td>
             <td>{{$row->no_telpon}}</td>
             <td>{{$row->role}}</td>

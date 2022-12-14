@@ -4,6 +4,7 @@ use App\Http\Controllers\ContohController;
 use App\Http\Controllers\KoordDesaController;
 use App\Http\Controllers\KoordKecamatanController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\RaihanSuaraController;
 use App\Http\Controllers\RelawanController;
 use App\Http\Controllers\ReportController;
@@ -23,6 +24,27 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 })->middleware('auth');;
+
+// ------------------------------ PDF  ---------------------------------- //
+//PDF KORCAM
+Route::get('/pdf-koordinator-kecamatan', [PdfController::class, 'korcam'])->name('koord_kecamatan')->middleware('auth','hakakses:admin,koordinator_kecamatan');;
+Route::post('/pdf-korcam-detail', [PdfController::class, 'viewPDF'])->name('viewPDF');
+
+//PDF KORDES
+Route::get('/pdf-koordinator-desa', [PdfController::class, 'kordes'])->middleware('auth','hakakses:admin');;
+Route::post('/pdf-kordes-detail', [PdfController::class, 'PDFDesa'])->name('viewPDF');
+
+//PDF Kelurahan
+Route::get('/pdf-kelurahan', [PdfController::class, 'kelurahan'])->middleware('auth','hakakses:admin');;
+Route::post('/pdf-kelurahan-detail', [PdfController::class, 'PDFkelurahan'])->name('viewPDF');
+
+//PDF User
+Route::get('/pdf-user', [PdfController::class, 'user'])->middleware('auth','hakakses:admin');;
+Route::post('/pdf-user-detail', [PdfController::class, 'PDFUser']);
+
+//PDF User
+Route::get('/pdf-relawan', [PdfController::class, 'relawan'])->middleware('auth','hakakses:admin');;
+Route::post('/pdf-relawan-detail', [PdfController::class, 'PDFRelawan']);
 
 // ------------------------------ REPORT DATA RELAWAN  ---------------------------------- //
 
@@ -46,16 +68,22 @@ Route::get('/data-desa', [ReportController::class, 'dataDesa'])->middleware('aut
 // ------------------------------ REPORT KELURAHAN  ---------------------------------- //
 //GET
 Route::get('/report-kelurahan', [ReportController::class, 'datakelurahan'])->middleware('auth','hakakses:admin');;
+//PDF
+Route::post('/pdf-data-kelurahan', [ReportController::class, 'viewPDFKelurahan'])->name('viewPDFKelurahan');
 
 
 // ------------------------------ REPORT KECAMATAN  ---------------------------------- //
 Route::get('/report-kecamatan', [ReportController::class, 'datakecamatan'])->middleware('auth','hakakses:admin');;
 Route::get('/report-kecamatan-nama', [ReportController::class, 'kecamatan'])->middleware('auth','hakakses:admin');;
 
+//PDF
+Route::post('/pdf-data-kecamatan', [ReportController::class, 'viewPDFKecamatan'])->name('viewPDFDesa');
+
 
 // ------------------------------ REPORT DESA  ---------------------------------- //
 Route::get('/report-desa', [ReportController::class, 'reportDesa'])->middleware('auth','hakakses:admin');;
 Route::get('/report-desa-nama', [ReportController::class, 'Desa'])->middleware('auth','hakakses:admin');;
+
 //PDF
 Route::post('/pdf-data-Desa', [ReportController::class, 'viewPDFDesa'])->name('viewPDFDesa');
 

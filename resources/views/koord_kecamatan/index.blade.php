@@ -31,6 +31,7 @@
           <tr>
             <th scope="col">No</th>
             <th scope="col">Nama</th>
+            <th scope="col">ID</th>
             <th scope="col">Deskripsi</th>
             <th scope="col">Desa</th>
             <th scope="col">Dapil</th>
@@ -46,6 +47,7 @@
         <tr>
             <th scope="row">{{$data + $koord_kecamatan->firstItem()}}</th>
             <td>{{$row->nama}}</td>
+            <td>{{$row->id}}</td>
             <td>{{$row->deskripsi}}</td>
             <td>{{$row->desa}}</td>
             <td>{{$row->dapil}}</td>

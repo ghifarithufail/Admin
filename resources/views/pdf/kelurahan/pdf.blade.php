@@ -27,34 +27,37 @@
 </head>
 <body>
 
-<h1>Koordinator Kecamatan Tabel</h1>
+<h1>Kelurahan Tabel</h1>
 
 <table id="customers">
     <tr>
         <th scope="col">No</th>
-        <th scope="col">Nama</th>
-        <th scope="col">Deskripsi</th>
-        <th scope="col">Desa</th>
+        <th scope="col">ID</th>
+        <th scope="col">Kelurahan</th>
         <th scope="col">Dapil</th>
-        <th scope="col">Waktu</th>
+        <th scope="col">TPS</th>
+        <th scope="col">DPT</th>
+        <th scope="col">Target</th>
+        <th scope="col">Total Balad Husein</th>
       </tr>
     </thead>
     <tbody>
     @php
     $no = 1;
     @endphp
-    @foreach ($koord_kecamatan as $data => $row)
+    @foreach ($kelurahan as $data => $row)
     <tr>
-        <td>{{$no++}}</td>
-        <td>{{$row->nama}}</td>
-        <td>{{$row->deskripsi}}</td>
-        <td>{{$row->desa}}</td>
+        <th scope="row">{{$data + $kelurahan->firstItem()}}</th>
+        <td>{{$row->id}}</td>
+        <td>{{$row->kelurahan}}</td>
         <td>{{$row->dapil}}</td>
-        <td>{{$row->created_at->format ('D d-M-Y H:i:s')}}</td>
+        <td>{{$row->tps}}</td>
+        <td>{{$row->jumlah}}</td>
+        <td>{{$row->target}}</td>
+        <td>{{$row->relawansData->count()}}</td>
     </tr>
      @endforeach
 </table>
-
 </body> 
 </html>
 

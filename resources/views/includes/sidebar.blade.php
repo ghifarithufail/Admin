@@ -62,7 +62,7 @@
                 <li class="nav-item">
                     <a href="/relawan" class="collapsed" aria-expanded="false">
                         <i class="fa fa-users"></i>
-                        <p>Relawan</p>
+                        <p>Balad Husein</p>
                     </a>
                 </li>
                 <li class="nav-section">
@@ -74,7 +74,7 @@
                 <li class="nav-item">
                     <a data-toggle="collapse" href="#base">
                         <i class="far fa-chart-bar"></i>
-                        <p>Report</p>
+                        <p>Data</p>
                         <span class="caret"></span>
                     </a>
                     <div class="collapse" id="base">
@@ -94,8 +94,45 @@
                                     <span class="sub-item">Desa</span>
                                 </a>
                             </li>
+                            
                             <li>
                                 <a href="/report-user">
+                                    <span class="sub-item">User</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a data-toggle="collapse" href="#form">
+                        <i class="fas fa-file"></i>
+                        <p>PDF</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="form">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="pdf-kelurahan">
+                                    <span class="sub-item">Kelurahan</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="pdf-koordinator-kecamatan">
+                                    <span class="sub-item">Kecamatan</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="pdf-koordinator-desa">
+                                    <span class="sub-item">Desa</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/pdf-relawan">
+                                    <span class="sub-item">Balad Husein</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="pdf-user">
                                     <span class="sub-item">User</span>
                                 </a>
                             </li>

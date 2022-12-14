@@ -24,15 +24,7 @@ class ReportController extends Controller
         ->whereYear("created_at",date('Y'))
         ->groupBy(DB::raw("Month(created_at)"))
         ->pluck('total');
-        // Relawan::select(DB::raw("CAST(COUNT(nama) as int) as total"))
 
-        // dd($total);
-
-        // $bulan = Relawan::select(DB::raw("MONTHNAME(created_at) as bulan"))
-        // ->GroupBy(DB::raw("MONTHNAME(created_at)"))
-        // ->pluck('bulan');
-
-        // dd($bulan);
         if($request->has('search')){
             $desa = Koord_desa::where('nama','LIKE','%' .$request->search. '%')->withCount('data_relawan')->paginate(15);
         }
@@ -74,10 +66,7 @@ class ReportController extends Controller
 
     public function viewPDF(){
         $relawan = Relawan::all();
-
-        $pdf = PDF::loadView('data_relawan.pdf', ['relawan'=>$relawan])
-        ->setPaper('a4','landscape');
-        return $pdf->download('data relawan.pdf');
+        return view('data_relawan.pdf', compact('relawan'));
     }
 
     public function getDataRelawan($id){
@@ -102,7 +91,12 @@ class ReportController extends Controller
         else{
             $kelurahan = DataKelurahan::with('relawansData')->paginate(25);
         }
-        return view('report.kelurahan',compact('kelurahan'));
+        return view('report.kelurahan.index',compact('kelurahan'));
+    }
+
+    public function viewPDFKelurahan(){
+        $kelurahan = DataKelurahan::with('relawansData')->get();
+        return view('report.kelurahan.pdf', compact('kelurahan'));
     }
     
     // ------------------------------------- DATA KECAMATAN REPORT ------------------------------------- //
@@ -114,7 +108,7 @@ class ReportController extends Controller
         else{
             $kecamatan = Koord_kecamatan::with('relawans','desas')->paginate(50);
         }
-        return view('report.kecamatan',compact('kecamatan'));
+        return view('report.kecamatan.index',compact('kecamatan'));
     }
 
     public function kecamatan(Request $request){
@@ -127,6 +121,11 @@ class ReportController extends Controller
         return view('report.kecamatan',compact('kecamatan'));
     }
 
+    public function viewPDFKecamatan(){
+        $kecamatan = Koord_kecamatan::with('relawans')->get();
+        return view('report.kecamatan.pdf', compact('kecamatan'));
+    }
+
     // ------------------------------------- DATA DESA REPORT ------------------------------------- //
 
     public function reportDesa(Request $request){
@@ -134,7 +133,7 @@ class ReportController extends Controller
             $desa = Koord_desa::where('nama','LIKE','%' .$request->search. '%')->withCount('data_relawan')->paginate(50);
         }
         else{
-            $desa = Koord_desa::with('data_relawan','Datakelurahans')->paginate(50);
+            $desa = Koord_desa::with('data_relawan','Datakelurahans','Koord_kecamatans')->paginate(50);
         }
         return view('report.desa.index',compact('desa'));
     }
@@ -144,17 +143,14 @@ class ReportController extends Controller
             $desa = Koord_desa::where('deskripsi','LIKE','%' .$request->search. '%')->withCount('data_relawan')->paginate(50);
         }
         else{
-            $desa = Koord_desa::with('data_relawan','Datakelurahans')->paginate(50);
+            $desa = Koord_desa::with('data_relawan','Datakelurahans','Koord_kecamatans')->paginate(50);
         }
         return view('report.desa.index',compact('desa'));
     }
 
     public function viewPDFDesa(){
-        $desa = Koord_desa::with('data_relawan','Datakelurahans');
-
-        $pdf = PDF::loadView('report.desa.pdf',compact('desa'))
-        ->setPaper('a4','landscape');
-        return $pdf->download('data report suara desa.pdf');
+        $desa = Koord_desa::with('data_relawan','Datakelurahans','Koord_kecamatans')->get();
+        return view('report.desa.pdf', compact('desa'));
     }
 
     // ------------------------------------- DATA USER REPORT ------------------------------------- //

@@ -61,11 +61,13 @@ class KoordKecamatanController extends Controller
         return redirect('/koordinator-kecamatan');
     }
 
-    public function viewPDF(){
-        $Koord_kecamatan = Koord_kecamatan::all();
-
-        $pdf = PDF::loadView('Koord_kecamatan.pdf', ['Koord_kecamatan'=>$Koord_kecamatan])
-        ->setPaper('a4','landscape');
-        return $pdf->download('data Koord_kecamatan.pdf');
+    public function viewPDF(Request $request){
+        if($request->has('search')){
+            $koord_kecamatan = Koord_kecamatan::where('nama','LIKE','%' .$request->search. '%')-> paginate(3000);
+        }
+        else{
+            $koord_kecamatan = Koord_kecamatan::paginate(3000);
+        }
+        return view('Koord_kecamatan.pdf', compact('koord_kecamatan'));
     }
 }

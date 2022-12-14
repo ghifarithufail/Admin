@@ -73,9 +73,6 @@ class KoordDesaController extends Controller
 
     public function viewPDF(){
         $Koord_desa = Koord_desa::all();
-
-        $pdf = PDF::loadView('koord_desa.pdf', ['Koord_desa'=>$Koord_desa])
-        ->setPaper('a4','landscape');
-        return $pdf->download('data koord_desa.pdf');
+        return view('koord_desa.pdf', compact('Koord_desa'));
     }
 }

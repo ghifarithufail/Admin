@@ -27,30 +27,26 @@
 </head>
 <body>
 
-<h1>Koordinator Kecamatan Tabel</h1>
+<h1>User Tabel</h1>
 
 <table id="customers">
     <tr>
         <th scope="col">No</th>
-        <th scope="col">Nama</th>
-        <th scope="col">Deskripsi</th>
-        <th scope="col">Desa</th>
-        <th scope="col">Dapil</th>
-        <th scope="col">Waktu</th>
+        <th scope="col">User</th>
+        <th scope="col">Role</th>
+        <th scope="col">Total relawan</th>
       </tr>
     </thead>
     <tbody>
     @php
     $no = 1;
     @endphp
-    @foreach ($koord_kecamatan as $data => $row)
+    @foreach ($user as $data => $row)
     <tr>
-        <td>{{$no++}}</td>
-        <td>{{$row->nama}}</td>
-        <td>{{$row->deskripsi}}</td>
-        <td>{{$row->desa}}</td>
-        <td>{{$row->dapil}}</td>
-        <td>{{$row->created_at->format ('D d-M-Y H:i:s')}}</td>
+        <th scope="row">{{$data + $user->firstItem()}}</th>
+        <td>{{$row->name}}</td>
+        <td>{{$row->role}}</td>
+        <td>{{$row->datarelawans->count() }}</td>
     </tr>
      @endforeach
 </table>

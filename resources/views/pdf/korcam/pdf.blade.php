@@ -31,26 +31,30 @@
 
 <table id="customers">
     <tr>
-        <th scope="col">No</th>
-        <th scope="col">Nama</th>
-        <th scope="col">Deskripsi</th>
-        <th scope="col">Desa</th>
-        <th scope="col">Dapil</th>
-        <th scope="col">Waktu</th>
+      <th scope="col">No</th>
+      <th scope="col">Koordinator Kecamatan</th>
+      <th scope="col">Kecamatan</th>
+      <th scope="col">Koordinator Desa</th>
+      <th scope="col">Deskripsi Desa</th>
+      <th scope="col">Kelurahan</th>
+      <th scope="col">TPS</th>
+      {{-- <th scope="col">Total Balad Husein</th> --}}
       </tr>
     </thead>
     <tbody>
     @php
     $no = 1;
     @endphp
-    @foreach ($koord_kecamatan as $data => $row)
+    @foreach ($korcam as $data => $row)
     <tr>
         <td>{{$no++}}</td>
+        <td>{{$row->Koord_kecamatans->nama}}</td>
+        <td>{{$row->Koord_kecamatans->deskripsi}}</td>
         <td>{{$row->nama}}</td>
         <td>{{$row->deskripsi}}</td>
-        <td>{{$row->desa}}</td>
-        <td>{{$row->dapil}}</td>
-        <td>{{$row->created_at->format ('D d-M-Y H:i:s')}}</td>
+        <td>{{$row->Datakelurahans->kelurahan}}</td>
+        <td>{{$row->Datakelurahans->tps}}</td>
+        {{-- <td>{{$row->data_relawan->count()}}</td> --}}
     </tr>
      @endforeach
 </table>

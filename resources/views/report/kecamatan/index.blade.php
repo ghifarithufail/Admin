@@ -8,8 +8,12 @@
         <div class="judul text-center">
             <h1 class="text-center mb-4 mt-5 text-bold">REPORT KECAMATAN</h1>
           </div>
+          <form action="/pdf-data-kecamatan" method="POST" target="__blank">
+            @csrf
+            <button class="btn btn-danger" style="width: 110px" ><i class="fas fa-file mr-1"></i> PDF</button>
+          </form>
           <table class="table table-hover">
-            <div class="input-group">
+            <div class="input-group mt-3">
               <form action="/report-kecamatan" method="GET">
                 <input type="search" id="inputPassword6" placeholder="Cari Koodinator Kecamatan" name="search" class="form-control" aria-describedby="passwordHelpInline">
               </form>
@@ -22,9 +26,10 @@
                 <tr>
                   <th scope="col">No</th>
                   <th scope="col">Koordinator Kecamatan</th>
+                  <th scope="col">ID</th>
                   <th scope="col">Deskripsi Kecamatan</th>
                   <th scope="col">Total Desa/Kelurahan</th>
-                  <th scope="col">Total Relawan</th>
+                  <th scope="col">Total Balad Husein</th>
                 </tr>
               </thead>
               <tbody>
@@ -35,6 +40,7 @@
               <tr>
                 <th scope="row">{{$data + $kecamatan->firstItem()}}</th>
                   <td>{{$row->nama}}</td>
+                  <td>{{$row->id}}</td>
                   <td>{{$row->deskripsi}}</td>
                   <td>{{$row->desas->count() }}</td>
                   <td>{{$row->relawans->count() }}</td>

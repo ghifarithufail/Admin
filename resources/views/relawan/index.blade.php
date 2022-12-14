@@ -6,7 +6,7 @@
 <div class="kontaner ml-3">
 
   <div class="judul text-center">
-    <h1 class="text-center mb-4 mt-5 text-bold">Relawan</h1>
+    <h1 class="text-center mb-4 mt-5 text-bold">Balad Husein</h1>
   </div>
     <a href="/relawan-create" type="button" class="btn btn-success">Tambah +</a>  
     <table class="table table-hover">
@@ -33,7 +33,7 @@
             <th scope="col">Koordinator Desa</th>
             <th scope="col">Desa</th>
             <th scope="col">Verifikasi</th>
-            <th scope="col">Dibuat</th>
+            <th scope="col">Relawan</th>
             <th scope="col">Waktu</th>
             <th scope="col">Aksi</th>
           </tr>
