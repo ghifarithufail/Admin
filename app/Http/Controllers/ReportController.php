@@ -73,7 +73,7 @@ class ReportController extends Controller
         $data = relawan::find($id);
         $desa = Koord_desa::all();
         $datakelurahan = DataKelurahan::all();
-        return view('data_relawan.update', compact('data'),compact('desa'),compact('datakelurahan'));
+        return view('data_relawan.update', compact('data','desa','datakelurahan'));
     }
 
     public function udpateDR($id, Request $request){
@@ -86,10 +86,10 @@ class ReportController extends Controller
 
     public function datakelurahan(Request $request){
         if($request->has('search')){
-            $kelurahan = DataKelurahan::where('kelurahan','LIKE','%' .$request->search. '%')->withCount('relawansData')->paginate(25);
+            $kelurahan = DataKelurahan::where('kelurahan','LIKE','%' .$request->search. '%')->withCount('relawansData')->paginate(65);
         }
         else{
-            $kelurahan = DataKelurahan::with('relawansData')->paginate(25);
+            $kelurahan = DataKelurahan::with('relawansData')->paginate(65);
         }
         return view('report.kelurahan.index',compact('kelurahan'));
     }

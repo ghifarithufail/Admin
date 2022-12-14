@@ -39,7 +39,7 @@
                       </div>
 
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Deskripsi</label>
+                        <label for="exampleInputEmail1" class="form-label">Desa</label>
                         <input type="text" name="deskripsi" placeholder="Masukan Deskripsi" class="form-control"  aria-describedby="emailHelp">
                         @error('deskripsi')
                             <div class="alert alert-danger">{{ $message = 'Deskripsi harus di isi'}}</div>

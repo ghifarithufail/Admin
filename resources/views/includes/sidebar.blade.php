@@ -103,7 +103,7 @@
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a data-toggle="collapse" href="#form">
                         <i class="fas fa-file"></i>
                         <p>PDF</p>
@@ -138,11 +138,11 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a href="/data-relawan" class="collapsed" aria-expanded="false">
                         <i class="fa fa-id-card"></i>
-                        <p>Data Relawan</p>
+                        <p>Data Balad Husein</p>
                     </a>
                 </li>
                 <li class="nav-item">

@@ -27,10 +27,16 @@
             @csrf
             <button class="btn btn-danger" style="width: 110px" ><i class="fas fa-file mr-1"></i> PDF</button>
           </form>
-          <form action="/report-user" method="GET">
-            <input type="search" id="inputPassword6" placeholder="Cari User" name="search" class="form-control mt-3" aria-describedby="passwordHelpInline">
-          </form>
           <table class="table table-hover">
+            <div class="input-group mt-3">
+              <form action="/report-user" method="GET">
+                <input type="search" id="inputPassword6" placeholder="Cari User" name="search" class="form-control mt-3" aria-describedby="passwordHelpInline">
+              </form>
+              <form action="/pdf-relawan-detail" method="POST" target="__blank">
+                @csrf
+                <input type="search" id="inputPassword6" placeholder="Detail PDF User Dengan User ID" name="search" class="form-control mt-3 ml-3" aria-describedby="passwordHelpInline">
+              </form>
+            </div>
             <div class="row">
               <thead>
                 <tr>

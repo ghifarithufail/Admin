@@ -12,13 +12,18 @@
             @csrf
             <button class="btn btn-danger" style="width: 110px" ><i class="fas fa-file mr-1"></i> PDF</button>
           </form>
+          
           <table class="table table-hover">
             <div class="input-group mt-3">
               <form action="/report-kecamatan" method="GET">
                 <input type="search" id="inputPassword6" placeholder="Cari Koodinator Kecamatan" name="search" class="form-control" aria-describedby="passwordHelpInline">
               </form>
               <form  action="/report-kecamatan-nama" method="GET">
-                <input type="search" id="inputPassword6" placeholder="Cari Kecamatan" name="search" class="form-control" aria-describedby="passwordHelpInline">
+                <input type="search" id="inputPassword6" placeholder="Cari Kecamatan" name="search" class="form-control ml-3" aria-describedby="passwordHelpInline">
+              </form>
+              <form action="/pdf-korcam-detail" method="POST" target="__blank">
+                @csrf
+                <input type="search" id="inputPassword6" placeholder="PDF Koordinator Kecamatan, dengan ID KORCAM" name="search" class="form-control ml-3" aria-describedby="passwordHelpInline">
               </form>
             </div>
             <div class="row">

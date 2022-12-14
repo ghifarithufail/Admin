@@ -35,6 +35,10 @@
               <form  action="/report-desa-nama" method="GET">
                 <input type="search" id="inputPassword6" placeholder="Cari Desa" name="search" class="form-control mt-3 ml-3" aria-describedby="passwordHelpInline">
               </form>
+              <form action="/pdf-kordes-detail" method="POST" target="__blank">
+                @csrf
+                <input type="search" id="inputPassword6" placeholder="PDF Koordinator Desa Dengan ID KORDES" name="search" class="form-control mt-3 ml-3" aria-describedby="passwordHelpInline">
+              </form>
             </div>
             <div class="row">
               <thead>

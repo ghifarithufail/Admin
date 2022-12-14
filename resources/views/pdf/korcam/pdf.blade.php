@@ -38,7 +38,7 @@
       <th scope="col">Deskripsi Desa</th>
       <th scope="col">Kelurahan</th>
       <th scope="col">TPS</th>
-      {{-- <th scope="col">Total Balad Husein</th> --}}
+      <th scope="col">Total Balad Husein</th>
       </tr>
     </thead>
     <tbody>
@@ -54,7 +54,7 @@
         <td>{{$row->deskripsi}}</td>
         <td>{{$row->Datakelurahans->kelurahan}}</td>
         <td>{{$row->Datakelurahans->tps}}</td>
-        {{-- <td>{{$row->data_relawan->count()}}</td> --}}
+        <td>{{$row->data_relawan->count()}}</td>
     </tr>
      @endforeach
 </table>

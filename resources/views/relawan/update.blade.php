@@ -75,15 +75,15 @@
                         <div id="emailHelp" class="form-text">
                     </div>
 
-                    {{-- <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Kelurahan</label>
-                        <select name="kelurahan_id" class="form-control" aria-label="Default select example">
-                          <option selected>Pilih Kelurahan</option>
-                          @foreach ($datakelurahan as $data)
-                              <option value="{{$data->id}}">{{$data->nama}}</option>
-                          @endforeach
-                        </select>
-                      </div> --}}
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Kelurahan</label>
+                      <select name="kelurahan_id" class="form-control" aria-label="Default select example">
+                        <option value="{{$data->kelurahan_id}}">-- {{$data->Datakelurahans->kelurahan}} {{$data->Datakelurahans->tps}} --</option>
+                        @foreach ($kelurahan as $datas)
+                            <option value="{{$datas->id}}">{{$datas->kelurahan}} - {{$datas->tps}}</option>
+                        @endforeach
+                      </select>
+                    </div>
 
                     {{-- <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">is_visible</label>

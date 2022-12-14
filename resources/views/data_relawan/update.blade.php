@@ -37,8 +37,8 @@
                         <label for="exampleInputEmail1" class="form-label">status</label>
                         <select name="status" class="form-control" aria-label="Default select example">
                           <option value="{{$data->status}}">-- {{$data->status}} --</option>
-                          <option value="Kawin">Kawin</option>
-                          <option value="Belum Kawin">Belum Kawin</option>
+                          <option value="S">S</option>
+                          <option value="B">B</option>
                         </select>
                     </div>
 
@@ -46,8 +46,8 @@
                         <label for="exampleInputEmail1" class="form-label">Jenis</label>
                         <select name="jenis" class="form-control" aria-label="Default select example">
                           <option value="{{$data->jenis}}">-- {{$data->jenis}} --</option>
-                          <option value="Pria">Pria</option>
-                              <option value="Perempuan">Perempuan</option>
+                          <option value="P">P</option>
+                              <option value="L">L</option>
                         </select>
                     </div>
 
@@ -75,6 +75,16 @@
                         <div id="emailHelp" class="form-text">
                     </div>
 
+
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Kelurahan</label>
+                      <select name="kelurahan_id" class="form-control" aria-label="Default select example">
+                        <option value="{{$data->kelurahan_id}}">-- {{$data->Datakelurahans->kelurahan}} {{$data->Datakelurahans->tps}} --</option>
+                        @foreach ($datakelurahan as $datas)
+                            <option value="{{$datas->id}}">{{$datas->kelurahan}} - {{$datas->tps}}</option>
+                        @endforeach
+                      </select>
+                    </div>
                     {{-- <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Kelurahan</label>
                         <select name="kelurahan_id" class="form-control" aria-label="Default select example">

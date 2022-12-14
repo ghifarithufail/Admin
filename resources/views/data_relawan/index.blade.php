@@ -7,7 +7,7 @@
   <div class="kontaner ml-3">
     
     <div class="judul text-center">
-      <h1 class="text-center mb-4 mt-5 text-bold">Data Relawan</h1>
+      <h1 class="text-center mb-4 mt-5 text-bold">Data Balad Husein</h1>
     </div>
     <div class="card-body mt-2">
   
@@ -27,7 +27,7 @@
           <input type="search" id="inputPassword6" placeholder="Cari Nama Relawan" name="search" class="form-control" aria-describedby="passwordHelpInline">
         </form>
         <form action="/data-relawan" method="GET">
-          <input type="search" id="inputPassword6" placeholder="Cari data relawan dengan user ID" name="search" class="form-control ml-3" aria-describedby="passwordHelpInline">
+          <input type="search" id="inputPassword6" placeholder="Cari data User dengan user ID" name="search" class="form-control ml-3" aria-describedby="passwordHelpInline">
         </form>
       </div>
       <div class="row">
@@ -35,7 +35,7 @@
           <tr>
             <th scope="col">No</th>
             <th scope="col">Nama</th>
-            <th scope="col">Pembuat</th>
+            <th scope="col">User</th>
             <th scope="col">NIK</th>
             <th scope="col">KK</th>
             <th scope="col">Tempat Lahir</th>
@@ -81,7 +81,7 @@
             <td>{{$row->created_at->format ('D d-M-Y H:i:s')}}</td>
             <td>
                 <a href="/relawan-data-update/{{$row->id}}" class="btn btn-warning edit m-1">Edit</a>
-                {{-- <a href="#" class="btn btn-danger delete m-1" data-id="{{$row->id}}" data-calon="{{$row->nama}}">Delete</a> --}}
+                <a href="#" class="btn btn-danger delete m-1" data-id="{{$row->id}}" data-calon="{{$row->nama}}">Delete</a>
             </td>
         </tr>
           {{-- @endif --}}

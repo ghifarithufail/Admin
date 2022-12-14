@@ -21,8 +21,7 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04AA6D;
-  color: white;
+  color: black;
 }
 </style>
 </head>
@@ -34,7 +33,7 @@
   <tr>
     <th scope="col">No</th>
             <th scope="col">Nama</th>
-            <th scope="col">Relawan</th>
+            <th scope="col">User</th>
             <th scope="col">NIK</th>
             <th scope="col">KK</th>
             <th scope="col">Tempat Lahir</th>

@@ -21,6 +21,17 @@
                         <div id="emailHelp" class="form-text">
                     </div>
 
+
+                    <div class="mb-3">
+                      <label for="exampleInputEmail1" class="form-label">Kelurahan</label>
+                      <select name="kelurahan_id" class="form-control" aria-label="Default select example">
+                        <option value="{{$dataKD->kelurahan_id}}">-- {{$dataKD->Datakelurahans->kelurahan}} {{$dataKD->Datakelurahans->tps}}--</option>
+                        @foreach ($dataKelurahan as $data)
+                            <option value="{{$data->id}}">{{$data->kelurahan}} - {{$data->tps}}</option>
+                        @endforeach
+                      </select>
+                    </div>
+
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Koordinator Kecamatan</label>
                         <select name="Koord_kecamatan_id" class="form-control" aria-label="Default select example">

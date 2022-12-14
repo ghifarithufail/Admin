@@ -21,8 +21,7 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04AA6D;
-  color: white;
+  color: black;
 }
 </style>
 </head>

@@ -28,23 +28,23 @@ Route::get('/', function () {
 // ------------------------------ PDF  ---------------------------------- //
 //PDF KORCAM
 Route::get('/pdf-koordinator-kecamatan', [PdfController::class, 'korcam'])->name('koord_kecamatan')->middleware('auth','hakakses:admin,koordinator_kecamatan');;
-Route::post('/pdf-korcam-detail', [PdfController::class, 'viewPDF'])->name('viewPDF');
+Route::post('/pdf-korcam-detail', [PdfController::class, 'viewPDF'])->name('viewPDF')->middleware('auth','hakakses:admin');;
 
 //PDF KORDES
 Route::get('/pdf-koordinator-desa', [PdfController::class, 'kordes'])->middleware('auth','hakakses:admin');;
-Route::post('/pdf-kordes-detail', [PdfController::class, 'PDFDesa'])->name('viewPDF');
+Route::post('/pdf-kordes-detail', [PdfController::class, 'PDFDesa'])->name('viewPDF')->middleware('auth','hakakses:admin');;
 
 //PDF Kelurahan
 Route::get('/pdf-kelurahan', [PdfController::class, 'kelurahan'])->middleware('auth','hakakses:admin');;
-Route::post('/pdf-kelurahan-detail', [PdfController::class, 'PDFkelurahan'])->name('viewPDF');
+Route::post('/pdf-kelurahan-detail', [PdfController::class, 'PDFkelurahan'])->name('viewPDF')->middleware('auth','hakakses:admin');;
 
 //PDF User
 Route::get('/pdf-user', [PdfController::class, 'user'])->middleware('auth','hakakses:admin');;
-Route::post('/pdf-user-detail', [PdfController::class, 'PDFUser']);
+Route::post('/pdf-user-detail', [PdfController::class, 'PDFUser'])->middleware('auth','hakakses:admin');
 
 //PDF User
 Route::get('/pdf-relawan', [PdfController::class, 'relawan'])->middleware('auth','hakakses:admin');;
-Route::post('/pdf-relawan-detail', [PdfController::class, 'PDFRelawan']);
+Route::post('/pdf-relawan-detail', [PdfController::class, 'PDFRelawan'])->middleware('auth','hakakses:admin');
 
 // ------------------------------ REPORT DATA RELAWAN  ---------------------------------- //
 
@@ -69,7 +69,7 @@ Route::get('/data-desa', [ReportController::class, 'dataDesa'])->middleware('aut
 //GET
 Route::get('/report-kelurahan', [ReportController::class, 'datakelurahan'])->middleware('auth','hakakses:admin');;
 //PDF
-Route::post('/pdf-data-kelurahan', [ReportController::class, 'viewPDFKelurahan'])->name('viewPDFKelurahan');
+Route::post('/pdf-data-kelurahan', [ReportController::class, 'viewPDFKelurahan'])->name('viewPDFKelurahan')->middleware('auth','hakakses:admin');
 
 
 // ------------------------------ REPORT KECAMATAN  ---------------------------------- //
@@ -77,7 +77,7 @@ Route::get('/report-kecamatan', [ReportController::class, 'datakecamatan'])->mid
 Route::get('/report-kecamatan-nama', [ReportController::class, 'kecamatan'])->middleware('auth','hakakses:admin');;
 
 //PDF
-Route::post('/pdf-data-kecamatan', [ReportController::class, 'viewPDFKecamatan'])->name('viewPDFDesa');
+Route::post('/pdf-data-kecamatan', [ReportController::class, 'viewPDFKecamatan'])->name('viewPDFDesa')->middleware('auth','hakakses:admin');
 
 
 // ------------------------------ REPORT DESA  ---------------------------------- //
@@ -85,7 +85,7 @@ Route::get('/report-desa', [ReportController::class, 'reportDesa'])->middleware(
 Route::get('/report-desa-nama', [ReportController::class, 'Desa'])->middleware('auth','hakakses:admin');;
 
 //PDF
-Route::post('/pdf-data-Desa', [ReportController::class, 'viewPDFDesa'])->name('viewPDFDesa');
+Route::post('/pdf-data-Desa', [ReportController::class, 'viewPDFDesa'])->name('viewPDFDesa')->middleware('auth','hakakses:admin');
 
 
 // ------------------------------ REPORT USER  ---------------------------------- //
@@ -105,7 +105,7 @@ Route::get('/logout',[LoginController::class, 'logout'] )->name('logout');
 
 Route::get('/contoh', [ContohController::class, 'contoh'])->name('contoh')->middleware('auth','hakakses:admin');;;
 
-Route::post('/pdf-user', [LoginController::class, 'viewPDF'])->name('viewPDF');
+Route::post('/pdf-user', [LoginController::class, 'viewPDF'])->name('viewPDF')->middleware('auth','hakakses:admin');
 
 
 
@@ -117,7 +117,7 @@ Route::get('/raihan-suara-create', [RaihanSuaraController::class, 'postRH'])->na
 Route::post('/RHStore', [RaihanSuaraController::class, 'RHStore'])->name('RHStore')->middleware('auth','hakakses:admin');;
 
 //PDF
-Route::post('/pdf-raihan-suara', [RaihanSuaraController::class, 'viewPDF'])->name('viewPDF');
+Route::post('/pdf-raihan-suara', [RaihanSuaraController::class, 'viewPDF'])->name('viewPDF')->middleware('auth','hakakses:admin');;
 
 // ------------------------------ USER ---------------------------------- //
 Route::get('/user', [LoginController::class, 'user'])->name('user')->middleware('auth','hakakses:admin');;;
@@ -148,15 +148,16 @@ Route::post('/updateKK/{id}',[KoordKecamatanController::class, 'udpateKK'] )->na
 Route::get('/deleteKK/{id}',[KoordKecamatanController::class, 'deleteKK'] )->name('deleteKK')->name('koord_kecamatan')->middleware('auth','hakakses:admin');;
 
 //PDF
-Route::post('/pdf-korcam', [KoordKecamatanController::class, 'viewPDF'])->name('viewPDF');
+Route::post('/pdf-korcam', [KoordKecamatanController::class, 'viewPDF'])->name('viewPDF')->middleware('auth','hakakses:admin');
 
 // ------------------------------  RELAWAN ---------------------------------- //
 
 //GET
-Route::get('/relawan', [RelawanController::class, 'relawan'])->name('relawan')->name('koord_kecamatan')->middleware('auth','hakakses:admin,koordinator_kecamatan,koordinator_desa,relawan');;
+Route::get('/relawan', [RelawanController::class, 'relawan'])->name('relawan')->middleware('auth','hakakses:admin,koordinator_kecamatan,koordinator_desa,relawan');;
 
-//Find Pemilih
+//Find
 Route::get('/findRelawan',[RelawanController::class, 'findRelawan'])->middleware('auth','hakakses:admin,koordinator_kecamatan,koordinator_desa,relawan');;
+Route::get('/verifikasi', [RelawanController::class, 'verifikasi'])->name('verifikasi')->middleware('auth','hakakses:admin,koordinator_kecamatan,koordinator_desa,relawan');;
 
 //CREATE
 Route::get('/relawan-create', [RelawanController::class, 'postR'])->name('postR')->name('koord_kecamatan')->middleware('auth','hakakses:admin,koordinator_kecamatan,koordinator_desa,relawan');;
@@ -188,4 +189,4 @@ Route::post('/updateKD/{id}',[KoordDesaController::class, 'updateKD'] )->name('u
 Route::get('/deleteKD/{id}',[KoordDesaController::class, 'deleteKD'] )->name('deleteKD')->middleware('auth','hakakses:admin');;
 
 //PDF
-Route::post('/pdf-kordes', [KoordDesaController::class, 'viewPDF'])->name('viewPDF');
+Route::post('/pdf-kordes', [KoordDesaController::class, 'viewPDF'])->name('viewPDF')->middleware('auth','hakakses:admin');

@@ -11,9 +11,14 @@
     <a href="/relawan-create" type="button" class="btn btn-success">Tambah +</a>  
     <table class="table table-hover">
       <div class="row text-center">
-        <form action="/relawan" method="GET">
-          <input type="search" id="inputPassword6" placeholder="Cari Relawan" name="search" class="form-control ml-3 mt-3" aria-describedby="passwordHelpInline">
-        </form>
+        <div class="input-group mt-3">
+          <form action="/relawan" method="GET">
+            <input type="search" id="inputPassword6" placeholder="Cari Relawan" name="search" class="form-control ml-3 mt-3" aria-describedby="passwordHelpInline">
+          </form>
+          <form action="/verifikasi" method="GET">
+            <input type="search" id="inputPassword6" placeholder="cek Verifikasi iya, tidak atau belum" name="search" class="form-control ml-3 mt-3" aria-describedby="passwordHelpInline">
+          </form>
+        </div>
         <thead>
           <tr>
             <th scope="col">No</th>
@@ -35,7 +40,6 @@
             <th scope="col">Verifikasi</th>
             <th scope="col">Relawan</th>
             <th scope="col">Waktu</th>
-            <th scope="col">Aksi</th>
           </tr>
         </thead>
         <tbody>
@@ -64,10 +68,10 @@
             <td>{{$row->is_visible}}</td>
             <td>{{$row->user->name}}</td>
             <td>{{$row->created_at->format ('D d-M-Y H:i:s')}}</td>
-            <td>
+            {{-- <td>
                 <a href="/relawan-update/{{$row->id}}" class="btn btn-warning edit m-1">Edit</a>
                 <a href="#" class="btn btn-danger delete m-1" data-id="{{$row->id}}" data-calon="{{$row->nama}}">Delete</a>
-            </td>
+            </td> --}}
         </tr>
           @endif
          @endforeach

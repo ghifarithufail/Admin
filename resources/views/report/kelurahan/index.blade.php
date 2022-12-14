@@ -19,9 +19,15 @@
           <button class="btn btn-danger" style="width: 110px" ><i class="fas fa-file mr-1"></i> PDF</button>
         </form>
         <table class="table table-hover">
+          <div class="input-group mt-3">
             <form action="/report-kelurahan" method="GET">
               <input type="search" id="inputPassword6" placeholder="Cari Nama Kelurahan" name="search" class="form-control mt-3" aria-describedby="passwordHelpInline">
             </form>
+            <form action="/pdf-kelurahan-detail" method="POST" target="__blank">
+              @csrf
+              <input type="search" id="inputPassword6" placeholder="PDF Kelurahan" name="search" class="form-control mt-3 ml-3" aria-describedby="passwordHelpInline">
+          </form>
+          </div>
             <div class="row">
               <thead>
                 <tr>

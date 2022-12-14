@@ -32,7 +32,7 @@
             <th scope="col">No</th>
             <th scope="col">Nama</th>
             <th scope="col">ID</th>
-            <th scope="col">Deskripsi</th>
+            <th scope="col">Kecamatan</th>
             <th scope="col">Desa</th>
             <th scope="col">Dapil</th>
             <th scope="col">Waktu</th>

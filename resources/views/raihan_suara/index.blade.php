@@ -23,7 +23,7 @@
     
     <table class="table table-hover">
       <form action="/raihan-suara" method="GET">
-        <input type="search" id="inputPassword6" name="search" placeholder="Cari Kelurahan dengan ID" class="form-control" aria-describedby="passwordHelpInline">
+        <input type="search" id="inputPassword6" name="search" placeholder="Cari Kelurahan dengan ID KELURAHAN" class="form-control" aria-describedby="passwordHelpInline">
       </form>
       <div class="row">
         <thead>

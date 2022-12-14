@@ -24,6 +24,17 @@ class RelawanController extends Controller
         return view('relawan.index',['relawan' => $relawan], compact('relawan'));
     }
 
+    public function verifikasi(Request $request){
+        if($request->has('search')){
+            $relawan = Relawan::where('is_visible','LIKE','%' .$request->search. '%')->paginate(30);
+        }
+        else{
+            $relawan = Relawan::with('user','Koord_desas','Datakelurahans')->paginate(30);
+            // $relawan = Relawan::with('user')->paginate(30);
+        }
+        return view('relawan.index',['relawan' => $relawan], compact('relawan'));
+    }
+
     public function postR(){
         $datakelurahan = DataKelurahan::all();
         $datadesa = Koord_desa::all();
@@ -78,8 +89,8 @@ class RelawanController extends Controller
     public function getRelawan($id){
         $data = relawan::find($id);
         $desa = Koord_desa::all();
-        $datakelurahan = DataKelurahan::all();
-        return view('relawan.update', compact('data'),compact('desa'),compact('datakelurahan'));
+        $kelurahan = DataKelurahan::all();
+        return view('relawan.update', compact('data','desa','kelurahan'));
     }
 
     public function udpateR($id, Request $request){

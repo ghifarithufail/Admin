@@ -21,8 +21,7 @@
   padding-top: 12px;
   padding-bottom: 12px;
   text-align: left;
-  background-color: #04AA6D;
-  color: white;
+  color: black;
 }
 </style>
 </head>
@@ -36,7 +35,7 @@
     <th scope="col">Koordinator Desa</th>
     <th scope="col">Deskripsi Desa</th>
     <th scope="col">Kelurahan</th>
-    <th scope="col">Nama Relawan</th>
+    <th scope="col">User</th>
     <th scope="col">Balad Husein</th>
     <th scope="col">Waktu</th>
   </tr>
