@@ -15,10 +15,10 @@ class RelawanController extends Controller
 {
     public function relawan(Request $request){
         if($request->has('search')){
-            $relawan = Relawan::where('nama','LIKE','%' .$request->search. '%')->paginate(30);
+            $relawan = Relawan::where('nama','LIKE','%' .$request->search. '%')->paginate(200000);
         }
         else{
-            $relawan = Relawan::with('user','Koord_desas','Datakelurahans')->paginate(30);
+            $relawan = Relawan::with('user','Koord_desas','Datakelurahans')->paginate(200000);
             // $relawan = Relawan::with('user')->paginate(30);
         }
         return view('relawan.index',['relawan' => $relawan], compact('relawan'));
@@ -26,10 +26,10 @@ class RelawanController extends Controller
 
     public function verifikasi(Request $request){
         if($request->has('search')){
-            $relawan = Relawan::where('is_visible','LIKE','%' .$request->search. '%')->paginate(30);
+            $relawan = Relawan::where('is_visible','LIKE','%' .$request->search. '%')->paginate(200);
         }
         else{
-            $relawan = Relawan::with('user','Koord_desas','Datakelurahans')->paginate(30);
+            $relawan = Relawan::with('user','Koord_desas','Datakelurahans')->paginate(200);
             // $relawan = Relawan::with('user')->paginate(30);
         }
         return view('relawan.index',['relawan' => $relawan], compact('relawan'));
@@ -102,6 +102,6 @@ class RelawanController extends Controller
     public function deleteR($id){
         $Koord_kecamatan = relawan::find($id);
         $Koord_kecamatan->delete();
-        return redirect('/relawan');
+        return redirect('/data-relawan');
     }
 }

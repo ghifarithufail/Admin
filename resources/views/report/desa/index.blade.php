@@ -46,7 +46,8 @@
                   <th scope="col">No</th>
                   <th scope="col">Koordinator Desa</th>
                   <th scope="col">ID</th>
-                  <th scope="col">Deskripsi Desa</th>
+                  {{-- <th scope="col">Desa</th> --}}
+                  <th scope="col">Deskripsi Kelurahan/Desa</th>
                   <th scope="col">Total Balad Husein</th>
                 </tr>
               </thead>

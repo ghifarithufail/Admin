@@ -118,7 +118,7 @@ class ReportController extends Controller
         else{
             $kecamatan = Koord_kecamatan::with('relawans')->paginate(50);
         }
-        return view('report.kecamatan',compact('kecamatan'));
+        return view('report.kecamatan.index',compact('kecamatan'));
     }
 
     public function viewPDFKecamatan(){

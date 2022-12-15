@@ -99,8 +99,7 @@
           <tr>
             <th scope="col">No</th>
             <th scope="col">Koordinator Desa</th>
-            <th scope="col">Deskripsi Desa</th>
-            <th scope="col">Kelurahan</th>
+            <th scope="col">Desa/Kelurahan</th>
             <th scope="col">Nama Koordinator Kecamatan</th>
             <th scope="col">Deskripsi Kecamatan</th>
             <th scope="col">Total Balad Husein</th>
@@ -116,7 +115,6 @@
           <th scope="row">{{$data + $desa->firstItem()}}</th>
             <td>{{$row->nama}}</td>
             <td>{{$row->deskripsi}}</td>
-            <td>{{$row->Datakelurahans->kelurahan}}</td>
             <td>{{$row->Koord_kecamatans->nama}}</td>
             <td>{{$row->Koord_kecamatans->deskripsi}}</td>
             <td>{{$row->data_relawan->count() }}</td>
@@ -150,7 +148,7 @@
       text: 'JUMLAH RELAWAN'
     },
     xAxis : {
-      categories: ['November','Desember','Januari','Februari','Maret','April',
+      categories: ['Desember','Januari','Februari','Maret','April',
                       'Mei','Juni','Juli','Agustus','September','Oktober']
     },
     yAxis : {

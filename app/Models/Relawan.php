@@ -15,7 +15,6 @@ class Relawan extends Model
         return $this->belongsTo(Koord_desa::class,'Koord_desa_id','id');
     }
 
-
     public function Datakelurahans(){
         return $this->belongsTo(DataKelurahan::class,'kelurahan_id','id');
     }

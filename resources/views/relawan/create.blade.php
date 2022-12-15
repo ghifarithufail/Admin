@@ -60,11 +60,11 @@
                     {{-- <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Status</label>
                         <select name="status" class="form-control" aria-label="Default select example">
-                          <option selected>Pilih Status</option>
-                              <option value="Kawin">Kawin</option>
-                              <option value="Belum Kawin">Belum Kawin</option>
+                            <option selected>Pilih Status</option>
+                            <option value="Kawin">Kawin</option>
+                            <option value="Belum Kawin">Belum Kawin</option>
                         </select>
-                      </div> --}}
+                    </div> --}}
                     
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Status</label>
@@ -78,11 +78,11 @@
                     {{-- <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Jenis</label>
                         <select name="jenis" class="form-control" aria-label="Default select example">
-                          <option selected>Pilih Jenis</option>
-                              <option value="Pria">Pria</option>
-                              <option value="Perempuan">Perempuan</option>
+                            <option selected>Pilih Jenis</option>
+                            <option value="Pria">Pria</option>
+                            <option value="Perempuan">Perempuan</option>
                         </select>
-                      </div> --}}
+                    </div> --}}
 
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Jenis</label>
@@ -130,24 +130,24 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Kelurahan</label>
-                        <select name="kelurahan_id" class="form-control" aria-label="Default select example">
-                          <option selected>Pilih Kelurahan</option>
-                          @foreach ($datakelurahan as $data)
-                              <option value="{{$data->id}}">{{$data->kelurahan}} - {{$data->tps}}</option>
-                          @endforeach
-                        </select>
-                      </div>
-
-                      <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Koordinator Desa</label>
                         <select name="Koord_desa_id" class="form-control" aria-label="Default select example">
-                          <option selected>Pilih Koordinator Desa</option>
-                          @foreach ($datadesa as $data)
-                              <option value="{{$data->id}}">{{$data->nama}}</option>
-                          @endforeach
+                        <option selected>Pilih Koordinator Desa</option>
+                            @foreach ($datadesa as $data)
+                                <option value="{{$data->id}}">{{$data->nama}} - {{$data->deskripsi}}</option>
+                            @endforeach
                         </select>
-                      </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Kelurahan</label>
+                        <select name="kelurahan_id" class="form-control" aria-label="Default select example">
+                        <option selected>Pilih Kelurahan</option>
+                            @foreach ($datakelurahan as $data)
+                                <option value="{{$data->id}}">{{$data->kelurahan}} - {{$data->tps}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
 
                     {{-- <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">is_visible</label>
@@ -161,7 +161,7 @@
                 </form>
             </div>
         </div>
-      </div>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script type="text/javascript">

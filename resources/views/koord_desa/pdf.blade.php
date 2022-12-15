@@ -33,12 +33,10 @@
   <tr>
     <th scope="col">No</th>
     <th scope="col">Nama</th>
-    {{-- <th scope="col">Koordinator Kecamatan</th> --}}
-    <th scope="col">Deskripsi</th>
-    <th scope="col">Kelurahan</th>
-    <th scope="col">TPS</th>
+    <th scope="col">ID</th>
+    <th scope="col">Desa</th>
     <th scope="col">Koordinator Kecamatan</th>
-    <th scope="col">Deskripsi Kecamatan</th>
+    <th scope="col">Kecamatan</th>
     <th scope="col">Dapil</th>
     <th scope="col">Waktu</th>
   </tr>
@@ -49,10 +47,8 @@
         <tr>
             <td>{{$no++}}</td>
             <td>{{$row->nama}}</td>
-            {{-- <td>{{$row->Koord_kecamatans->nama}}</td> --}}
+            <td>{{$row->id}}</td>
             <td>{{$row->deskripsi}}</td>
-            <td>{{$row->Datakelurahans->kelurahan}}</td>
-            <td>{{$row->Datakelurahans->tps}}</td>
             <td>{{$row->Koord_kecamatans->nama}}</td>
             <td>{{$row->Koord_kecamatans->deskripsi}}</td>
             <td>{{$row->dapil}}</td>

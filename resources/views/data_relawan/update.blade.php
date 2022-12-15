@@ -75,6 +75,15 @@
                         <div id="emailHelp" class="form-text">
                     </div>
 
+                    <div class="mb-3">
+                        <label for="exampleInputEmail1" class="form-label">Koordinator Desa</label>
+                        <select name="Koord_desa_id" class="form-control" aria-label="Default select example">
+                          <option value="{{$data->Koord_desa_id}}">-- {{$data->Koord_desas->nama}} --</option>
+                          @foreach ($desa as $data)
+                              <option value="{{$data->id}}">{{$data->nama}} - {{$data->deskripsi}}</option>
+                          @endforeach
+                        </select>
+                      </div>
 
                     <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Kelurahan</label>
@@ -111,15 +120,6 @@
                         </select>
                       </div>
             
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Koordinator Desa</label>
-                        <select name="Koord_desa_id" class="form-control" aria-label="Default select example">
-                          <option value="{{$data->Koord_desa_id}}">-- {{$data->Koord_desas->nama}} --</option>
-                          @foreach ($desa as $data)
-                              <option value="{{$data->id}}">{{$data->nama}}</option>
-                          @endforeach
-                        </select>
-                      </div>
                       <button type="submit" class="btn  form-control text-white" style="background-color: red">Submit</button>
                 </form>
               </div>

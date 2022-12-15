@@ -34,6 +34,7 @@
     <th scope="col">No</th>
             <th scope="col">Nama</th>
             <th scope="col">User</th>
+            <th scope="col">Role</th>
             <th scope="col">NIK</th>
             <th scope="col">KK</th>
             <th scope="col">Tempat Lahir</th>
@@ -45,8 +46,9 @@
             <th scope="col">RW</th>
             <th scope="col">TPS</th>
             <th scope="col">Kelurahan</th>
-            <th scope="col">Koordinator Desa</th>
+            <th scope="col">TPS</th>
             <th scope="col">Koordinator Kecamatan</th>
+            <th scope="col">Koordinator Desa</th>
             <th scope="col">Verifikasi</th>
             <th scope="col">Waktu</th>
   </tr>
@@ -58,6 +60,7 @@
           <td>{{$no++}}</td>
             <td>{{$row->nama}}</td>
             <td>{{$row->user->name}}</td>
+            <td>{{$row->user->role}}</td>
             <td>{{$row->nik}}</td>
             <td>{{$row->nokk}}</td>
             {{-- <td>{{$row->tempat_lahir}}</td> --}}
@@ -69,8 +72,9 @@
             <td>{{$row->rw}}</td>
             <td>{{$row->tps}}</td>
             <td>{{$row->Datakelurahans->kelurahan}}</td>
-            <td>{{$row->Koord_desas->nama}}</td>
+            <td>{{$row->Datakelurahans->tps}}</td>
             <td>{{$row->Koord_desas->Koord_kecamatans->nama}}</td>
+            <td>{{$row->Koord_desas->nama}}</td>
             <td>{{$row->is_visible}}</td>
             <td>{{$row->created_at->format ('D d-M-Y H:i:s')}}</td>
         </tr>

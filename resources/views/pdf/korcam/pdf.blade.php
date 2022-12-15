@@ -35,9 +35,7 @@
       <th scope="col">Koordinator Kecamatan</th>
       <th scope="col">Kecamatan</th>
       <th scope="col">Koordinator Desa</th>
-      <th scope="col">Deskripsi Desa</th>
-      <th scope="col">Kelurahan</th>
-      <th scope="col">TPS</th>
+      <th scope="col">Kelurahan/Desa</th>
       <th scope="col">Total Balad Husein</th>
       </tr>
     </thead>
@@ -52,8 +50,6 @@
         <td>{{$row->Koord_kecamatans->deskripsi}}</td>
         <td>{{$row->nama}}</td>
         <td>{{$row->deskripsi}}</td>
-        <td>{{$row->Datakelurahans->kelurahan}}</td>
-        <td>{{$row->Datakelurahans->tps}}</td>
         <td>{{$row->data_relawan->count()}}</td>
     </tr>
      @endforeach

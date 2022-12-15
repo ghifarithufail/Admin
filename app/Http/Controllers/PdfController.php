@@ -48,7 +48,7 @@ class PdfController extends Controller
             $desa = Relawan::where('Koord_desa_id','LIKE','%' .$request->search. '%')->paginate(200);
         }
         else{
-            $desa = Relawan::with('user','Koord_desas','Datakelurahans')->paginate(200);
+            $desa = Relawan::with('user','Koord_desas','Datakelurahans','kecamatans')->paginate(200);
         }
         return view('pdf.kordes.pdf', compact('desa'));
     }

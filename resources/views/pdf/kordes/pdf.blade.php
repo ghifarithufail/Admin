@@ -33,8 +33,8 @@
   <tr>
     <th scope="col">No</th>
     <th scope="col">Koordinator Desa</th>
-    <th scope="col">Deskripsi Desa</th>
-    <th scope="col">Kelurahan</th>
+    <th scope="col">Kelurahan/Desa</th>
+    <th scope="col">TPS</th>
     <th scope="col">User</th>
     <th scope="col">Balad Husein</th>
     <th scope="col">Waktu</th>
@@ -46,8 +46,8 @@
         <tr>
             <td>{{$no++}}</td>
             <td>{{$row->Koord_desas->nama}}</td>
-            <td>{{$row->Koord_desas->deskripsi}}</td>
             <td>{{$row->Datakelurahans->kelurahan}}</td>
+            <td>{{$row->Datakelurahans->tps}}</td>
             <td>{{$row->user->name}}</td>
             <td>{{$row->nama}}</td>
             <td>{{$row->created_at->format ('D d-M-Y H:i:s')}}</td>

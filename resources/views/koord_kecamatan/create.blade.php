@@ -29,7 +29,7 @@
 
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Desa</label>
-                        <input type="text" name="desa" placeholder="Masukan Nama Calon" class="form-control"  aria-describedby="emailHelp">
+                        <input type="text" name="desa" placeholder="Masukan Nama Desa" class="form-control"  aria-describedby="emailHelp">
                         @error('desa')
                             <div class="alert alert-danger">{{ $message = 'Desa harus di isi'}}</div>
                         @enderror
@@ -38,7 +38,7 @@
 
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Dapil</label>
-                        <input type="text" name="dapil" placeholder="Masukan Nama Calon" class="form-control"  aria-describedby="emailHelp">
+                        <input type="text" name="dapil" placeholder="Masukan Dapil" class="form-control"  aria-describedby="emailHelp">
                         @error('dapil')
                             <div class="alert alert-danger">{{ $message = 'Dapil harus di isi'}}</div>
                         @enderror

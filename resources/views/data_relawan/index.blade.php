@@ -47,8 +47,8 @@
             <th scope="col">RW</th>
             <th scope="col">TPS</th>
             <th scope="col">Kelurahan</th>
-            <th scope="col">Koordinator Desa</th>
             <th scope="col">Koordinator Kecamatan</th>
+            <th scope="col">Koordinator Desa</th>
             <th scope="col">Verifikasi</th>
             <th scope="col">Waktu</th>
             <th scope="col">Aksi</th>
@@ -75,8 +75,8 @@
             <td>{{$row->rw}}</td>
             <td>{{$row->tps}}</td>
             <td>{{$row->Datakelurahans->kelurahan}}</td>
-            <td>{{$row->Koord_desas->nama}}</td>
             <td>{{$row->Koord_desas->Koord_kecamatans->nama}}</td>
+            <td>{{$row->Koord_desas->nama}}</td>
             <td>{{$row->is_visible}}</td>
             <td>{{$row->created_at->format ('D d-M-Y H:i:s')}}</td>
             <td>
@@ -85,7 +85,7 @@
             </td>
         </tr>
           {{-- @endif --}}
-         @endforeach
+        @endforeach
         </tbody>
     </table>
     {{$relawan->links()}}

@@ -80,11 +80,6 @@
                     <div class="collapse" id="base">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="/report-kelurahan">
-                                    <span class="sub-item">Kelurahan</span>
-                                </a>
-                            </li>
-                            <li>
                                 <a href="/report-kecamatan">
                                     <span class="sub-item">Kecamatan</span>
                                 </a>
@@ -94,7 +89,11 @@
                                     <span class="sub-item">Desa</span>
                                 </a>
                             </li>
-                            
+                            <li>
+                                <a href="/report-kelurahan">
+                                    <span class="sub-item">Kelurahan</span>
+                                </a>
+                            </li>
                             <li>
                                 <a href="/report-user">
                                     <span class="sub-item">User</span>

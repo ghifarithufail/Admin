@@ -49,7 +49,8 @@
         @foreach ($relawan as $data => $row)
         @if ($row->user->id == Auth::user()->id)
         <tr>
-          <th scope=>{{$data + $relawan ->firstItem()}}</th>
+          {{-- <th scope=>{{$data + $relawan ->firstItem()}}</th> --}}
+            <td>{{$no++}}</td>
             <td>{{$row->nama}}</td>
             <td>{{$row->nik}}</td>
             <td>{{$row->nokk}}</td>

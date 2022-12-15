@@ -44,7 +44,6 @@ class KoordDesaController extends Controller
             'deskripsi' => 'required',
             'Koord_kecamatan_id' => 'required',
             'dapil' => 'required',
-            'kelurahan_id' => 'required',
         ]);
         $Koord_desa = Koord_desa::create($request->all());
         $Koord_desa->save();
@@ -53,10 +52,9 @@ class KoordDesaController extends Controller
 
     public function getKoord_desa($id){
         $dataKD = Koord_desa::find($id);
-        $Koord_desa = Koord_desa::with('data_relawan','Koord_kecamatans','Datakelurahans');
-        $dataKelurahan = DataKelurahan::all();
+        $Koord_desa = Koord_desa::with('data_relawan','Koord_kecamatans');
         $dataKoord_kecamatan = Koord_kecamatan::all();
-        return view('koord_desa.update', compact('dataKD','dataKoord_kecamatan','dataKelurahan','Koord_desa'));
+        return view('koord_desa.update', compact('dataKD','dataKoord_kecamatan','Koord_desa'));
     }
 
     public function updateKD($id, Request $request){

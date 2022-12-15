@@ -31,9 +31,9 @@
             
                     <button type="submit" class="btn  form-control text-white" style="background-color: red">Submit</button>
                 </form>
-              </div>
             </div>
-          </div>
+            </div>
+        </div>
 </body>
 
 @endsection

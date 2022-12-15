@@ -23,17 +23,7 @@
                         <select name="Koord_kecamatan_id" class="form-control" aria-label="Default select example">
                           <option selected>Pilih Koordinator Kecamatan</option>
                           @foreach ($dataKoord_kecamatan as $data)
-                          <option value="{{$data->id}}">{{$data->nama}}</option>
-                          @endforeach
-                        </select>
-                      </div>
-
-                      <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Kelurahan</label>
-                        <select name="kelurahan_id" class="form-control" aria-label="Default select example">
-                          <option selected>Pilih Kelurahan</option>
-                          @foreach ($dataKelurahan as $data)
-                              <option value="{{$data->id}}">{{$data->kelurahan}} - {{$data->tps}}</option>
+                          <option value="{{$data->id}}">{{$data->nama}} - {{$data->deskripsi}} - {{$data->desa}}</option>
                           @endforeach
                         </select>
                       </div>
