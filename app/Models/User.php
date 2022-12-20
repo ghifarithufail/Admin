@@ -21,7 +21,10 @@ class User extends Authenticatable
     public function datarelawans(){
         return $this->hasMany(Relawan::class);
     }
+ 
+    public $incrementing = false;
     protected $fillable = [
+        'id',
         'name',
         'email',
         'password',

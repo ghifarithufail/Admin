@@ -22,12 +22,6 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Desa</label>
-                        <input type="text" name="desa" value="{{$dataKK->desa}}" placeholder="Masukan Nama Calon" class="form-control"  aria-describedby="emailHelp">
-                        <div id="emailHelp" class="form-text">
-                    </div>
-
-                    <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Dapil</label>
                         <input type="text" name="dapil" value="{{$dataKK->dapil}}" placeholder="Masukan Nama Calon" class="form-control"  aria-describedby="emailHelp">
                         <div id="emailHelp" class="form-text">

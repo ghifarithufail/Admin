@@ -103,20 +103,20 @@ class ReportController extends Controller
 
     public function datakecamatan(Request $request){
         if($request->has('search')){
-            $kecamatan = Koord_kecamatan::where('nama','LIKE','%' .$request->search. '%')->withCount('relawans','desas')->paginate(50);
+            $kecamatan = Koord_kecamatan::where('nama','LIKE','%' .$request->search. '%')->withCount('relawans','desas')->paginate(20);
         }
         else{
-            $kecamatan = Koord_kecamatan::with('relawans','desas')->paginate(50);
+            $kecamatan = Koord_kecamatan::with('relawans','desas')->paginate(20);
         }
         return view('report.kecamatan.index',compact('kecamatan'));
     }
 
     public function kecamatan(Request $request){
         if($request->has('search')){
-            $kecamatan = Koord_kecamatan::where('deskripsi','LIKE','%' .$request->search. '%')->withCount('relawans')->paginate(50);
+            $kecamatan = Koord_kecamatan::where('deskripsi','LIKE','%' .$request->search. '%')->withCount('relawans')->paginate(20);
         }
         else{
-            $kecamatan = Koord_kecamatan::with('relawans')->paginate(50);
+            $kecamatan = Koord_kecamatan::with('relawans')->paginate(20);
         }
         return view('report.kecamatan.index',compact('kecamatan'));
     }
@@ -130,20 +130,20 @@ class ReportController extends Controller
 
     public function reportDesa(Request $request){
         if($request->has('search')){
-            $desa = Koord_desa::where('nama','LIKE','%' .$request->search. '%')->withCount('data_relawan')->paginate(50);
+            $desa = Koord_desa::where('nama','LIKE','%' .$request->search. '%')->withCount('data_relawan')->paginate(20);
         }
         else{
-            $desa = Koord_desa::with('data_relawan','Datakelurahans','Koord_kecamatans')->paginate(50);
+            $desa = Koord_desa::with('data_relawan','Datakelurahans','Koord_kecamatans')->paginate(20);
         }
         return view('report.desa.index',compact('desa'));
     }
 
     public function Desa(Request $request){
         if($request->has('search')){
-            $desa = Koord_desa::where('deskripsi','LIKE','%' .$request->search. '%')->withCount('data_relawan')->paginate(50);
+            $desa = Koord_desa::where('deskripsi','LIKE','%' .$request->search. '%')->withCount('data_relawan')->paginate(20);
         }
         else{
-            $desa = Koord_desa::with('data_relawan','Datakelurahans','Koord_kecamatans')->paginate(50);
+            $desa = Koord_desa::with('data_relawan','Datakelurahans','Koord_kecamatans')->paginate(20);
         }
         return view('report.desa.index',compact('desa'));
     }
@@ -157,10 +157,10 @@ class ReportController extends Controller
 
     public function datauser(Request $request){
         if($request->has('search')){
-            $user = User::where('name','LIKE','%' .$request->search. '%')->withCount('datarelawans')->paginate(50);
+            $user = User::where('name','LIKE','%' .$request->search. '%')->withCount('datarelawans')->paginate(20);
         }
         else{
-            $user = User::with('datarelawans')->paginate(50);
+            $user = User::with('datarelawans')->paginate(20);
         }
         return view('report.user',compact('user'));
     }

@@ -25,10 +25,10 @@ class PdfController extends Controller
 
     public function viewPDF(Request $request){
         if($request->has('search')){
-            $korcam = Koord_desa::where('Koord_kecamatan_id','LIKE','%' .$request->search. '%')->withCount('data_relawan')->paginate(300);
+            $korcam = Koord_desa::where('Koord_kecamatan_id','LIKE','%' .$request->search. '%')->withCount('data_relawan')->paginate(4000);
         }
         else{
-            $korcam = Koord_desa::with('data_relawan','Datakelurahans','Koord_kecamatans')->paginate(300);
+            $korcam = Koord_desa::with('data_relawan','Datakelurahans','Koord_kecamatans')->paginate(4000);
         }
         return view('pdf.korcam.pdf', compact('korcam'));
     }
@@ -45,10 +45,10 @@ class PdfController extends Controller
 
     public function PDFDesa(Request $request){
         if($request->has('search')){
-            $desa = Relawan::where('Koord_desa_id','LIKE','%' .$request->search. '%')->paginate(200);
+            $desa = Relawan::where('Koord_desa_id','LIKE','%' .$request->search. '%')->paginate(6000);
         }
         else{
-            $desa = Relawan::with('user','Koord_desas','Datakelurahans','kecamatans')->paginate(200);
+            $desa = Relawan::with('user','Koord_desas','Datakelurahans','kecamatans')->paginate(6000);
         }
         return view('pdf.kordes.pdf', compact('desa'));
     }
@@ -85,10 +85,10 @@ class PdfController extends Controller
 
     public function PDFUser(Request $request){
         if($request->has('search')){
-            $user = User::where('name','LIKE','%' .$request->search. '%')->withCount('datarelawans')->paginate(3000);
+            $user = User::where('name','LIKE','%' .$request->search. '%')->withCount('datarelawans')->paginate(5000);
         }
         else{
-            $user = User::with('datarelawans')->paginate(3000);
+            $user = User::with('datarelawans')->paginate(5000);
         }
         return view('pdf.user.pdf',compact('user'));
     }
@@ -105,10 +105,10 @@ class PdfController extends Controller
 
     public function PDFRelawan(Request $request){
         if($request->has('search')){
-            $relawan = Relawan::where('user_id','LIKE','%' .$request->search. '%')->paginate(2000);
+            $relawan = Relawan::where('user_id','LIKE','%' .$request->search. '%')->paginate(5000);
         }
         else{
-            $relawan = Relawan::with('user','Koord_desas','Datakelurahans')->paginate(2000);
+            $relawan = Relawan::with('user','Koord_desas','Datakelurahans')->paginate(5000);
         }
         return view('pdf.relawan.pdf',compact('relawan'));
     }

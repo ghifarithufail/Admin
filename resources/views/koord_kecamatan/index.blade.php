@@ -33,7 +33,6 @@
             <th scope="col">Nama</th>
             <th scope="col">ID</th>
             <th scope="col">Kecamatan</th>
-            <th scope="col">Desa</th>
             <th scope="col">Dapil</th>
             <th scope="col">Waktu</th>
             <th scope="col">Aksi</th>
@@ -49,7 +48,6 @@
             <td>{{$row->nama}}</td>
             <td>{{$row->id}}</td>
             <td>{{$row->deskripsi}}</td>
-            <td>{{$row->desa}}</td>
             <td>{{$row->dapil}}</td>
             <td>{{$row->created_at->format ('D d-M-Y H:i:s')}}</td>
             <td>

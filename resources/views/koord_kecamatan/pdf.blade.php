@@ -34,7 +34,6 @@
         <th scope="col">No</th>
         <th scope="col">Nama</th>
         <th scope="col">Deskripsi</th>
-        <th scope="col">Desa</th>
         <th scope="col">Dapil</th>
         <th scope="col">Waktu</th>
       </tr>
@@ -48,7 +47,6 @@
         <td>{{$no++}}</td>
         <td>{{$row->nama}}</td>
         <td>{{$row->deskripsi}}</td>
-        <td>{{$row->desa}}</td>
         <td>{{$row->dapil}}</td>
         <td>{{$row->created_at->format ('D d-M-Y H:i:s')}}</td>
     </tr>

@@ -7,6 +7,7 @@ use App\Models\Koord_desa;
 use App\Models\Koord_kecamatan;
 use Illuminate\Http\Request;
 use PDF;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class KoordDesaController extends Controller
 {
@@ -45,8 +46,17 @@ class KoordDesaController extends Controller
             'Koord_kecamatan_id' => 'required',
             'dapil' => 'required',
         ]);
-        $Koord_desa = Koord_desa::create($request->all());
-        $Koord_desa->save();
+        $auto =['table'=>'koord_desas','length'=>8,'prefix'=>'DS-'];
+        $id = IdGenerator::generate($auto);
+        Koord_desa::create([
+            'id' => $id,
+            'nama' => $request->nama,
+            'deskripsi' => $request->deskripsi,
+            'Koord_kecamatan_id' => $request->Koord_kecamatan_id,
+            'dapil' => $request->dapil
+        ]);
+        // $Koord_desa = Koord_desa::create($request->all());
+        // $Koord_desa->save();
         return Redirect()->route('koord_desa')->with('sukses','data berhasill ditambahkan');;
     }
 

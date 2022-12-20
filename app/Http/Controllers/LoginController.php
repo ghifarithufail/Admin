@@ -3,10 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use DebugBar\RequestIdGenerator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use PDF;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
+
 
 class LoginController extends Controller
 {
@@ -34,8 +37,11 @@ class LoginController extends Controller
             'no_telpon' => 'required|unique:users,no_telpon',
             'password' => 'required',
         ]);
-
+        
+        $auto =['table'=>'users','length'=>8,'prefix'=>'US-'];
+        $id = IdGenerator::generate($auto);
         User::create([
+            'id' => $id,
             'name' => $request->name,
             'email' => $request->email,
             'role' => $request->role,

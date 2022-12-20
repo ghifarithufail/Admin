@@ -40,7 +40,7 @@
                       <input type="password" id="form2Example2" name="password" class="form-control" />
                       @error('password')
                             <div class="alert alert-danger">{{ $message = 'password harus di isi'}}</div>
-                        @enderror
+                      @enderror
                     </div>
                     
                     <div class="mb-3">

@@ -27,6 +27,15 @@
 </head>
 <body>
 
+  {{-- @if ($relawan as $data => $row)
+  <div class="p-6 bg-white border-b border-gray-200">
+   <h1 class="text-2xl"><td>{{$row->Koord_desas->Koord_kecamatans->nama}}</td></h1>
+   <p>{{$row->Koord_desas->nama}}</p>
+   <p>by {{ $post->user->name }}</p>
+  </div>
+  @endif --}}
+
+
 <h1> PDF Balad Husein Tabel</h1>
 
 <table id="customers">

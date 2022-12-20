@@ -8,8 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Koord_kecamatan extends Model
 {
     use HasFactory;
-
-    protected $guarded = [];
+    public $incrementing = false;
+    protected $fillable = [
+        'id',
+        'nama',
+        'deskripsi',
+        // 'desa',
+        'dapil',
+    ];
     protected $date = ['created_at'];
 
     public function desas(){

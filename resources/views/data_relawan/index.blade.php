@@ -80,9 +80,9 @@
             <td>{{$row->is_visible}}</td>
             <td>{{$row->created_at->format ('D d-M-Y H:i:s')}}</td>
             <td>
-                <a href="/relawan-data-update/{{$row->id}}" class="btn btn-warning edit m-1">Edit</a>
-                <a href="#" class="btn btn-danger delete m-1" data-id="{{$row->id}}" data-calon="{{$row->nama}}">Delete</a>
-            </td>
+              <a href="/relawan-update/{{$row->id}}" class="btn btn-warning edit m-1">Edit</a>
+              <a href="#" class="btn btn-danger delete m-1" data-id="{{$row->id}}" data-calon="{{$row->nama}}">Delete</a>
+          </td>
         </tr>
           {{-- @endif --}}
         @endforeach

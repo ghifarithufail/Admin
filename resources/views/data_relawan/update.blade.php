@@ -85,7 +85,7 @@
                         </select>
                       </div>
 
-                    <div class="mb-3">
+                    {{-- <div class="mb-3">
                       <label for="exampleInputEmail1" class="form-label">Kelurahan</label>
                       <select name="kelurahan_id" class="form-control" aria-label="Default select example">
                         <option value="{{$data->kelurahan_id}}">-- {{$data->Datakelurahans->kelurahan}} {{$data->Datakelurahans->tps}} --</option>
@@ -93,21 +93,16 @@
                             <option value="{{$datas->id}}">{{$datas->kelurahan}} - {{$datas->tps}}</option>
                         @endforeach
                       </select>
-                    </div>
-                    {{-- <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">Kelurahan</label>
-                        <select name="kelurahan_id" class="form-control" aria-label="Default select example">
-                          <option selected>Pilih Kelurahan</option>
-                          @foreach ($datakelurahan as $data)
-                              <option value="{{$data->id}}">{{$data->nama}}</option>
-                          @endforeach
-                        </select>
-                      </div> --}}
+                    </div> --}}
 
                     {{-- <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-label">is_visible</label>
-                        <input type="text" name="is_visible" id="is_visible" value="{{$data->is_visible}}" placeholder="Masukan is_visible" class="form-control"  aria-describedby="emailHelp">
-                        <div id="emailHelp" class="form-text">
+                      <label for="exampleInputEmail1" class="form-label">Kelurahan</label>
+                      <select name="kelurahan_id" class="form-control" aria-label="Default select example">
+                        <option value="{{$data->kelurahan_id}}">-- {{$data->Datakelurahans->kelurahan}} {{$data->Datakelurahans->tps}} --</option>
+                        @foreach ($kelurahan as $datas)
+                            <option value="{{$datas->id}}">{{$datas->kelurahan}} - {{$datas->tps}}</option>
+                        @endforeach
+                      </select>
                     </div> --}}
 
                     <div class="mb-3">

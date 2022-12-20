@@ -8,6 +8,7 @@ use App\Models\Koord_desa;
 use App\Models\Koord_kecamatan;
 use App\Models\Relawan;
 use App\Models\User;
+use DebugBar\RequestIdGenerator;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -96,7 +97,7 @@ class RelawanController extends Controller
     public function udpateR($id, Request $request){
         $relawan = relawan::find($id);
         $relawan->update($request->all());
-        return redirect('/relawan')->with('sukses','data berhasill di update');
+        return redirect('/data-relawan')->with('sukses','data berhasill di update');
     }
 
     public function deleteR($id){

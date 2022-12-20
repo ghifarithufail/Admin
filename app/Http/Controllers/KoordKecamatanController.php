@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Koord_kecamatan;
 use Illuminate\Http\Request;
 use PDF;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class KoordKecamatanController extends Controller
 {
@@ -36,11 +37,17 @@ class KoordKecamatanController extends Controller
         $this->validate($request,[
             'nama' => 'required|unique:koord_kecamatans,nama',
             'deskripsi' => 'required',
-            'desa' => 'required',
             'dapil' => 'required',
         ]);
-        $koord_kecamatan = Koord_kecamatan::create($request->all());
-        $koord_kecamatan->save();
+
+        $auto =['table'=>'koord_kecamatans','length'=>8,'prefix'=>'KC-'];
+        $id = IdGenerator::generate($auto);
+        Koord_kecamatan::create([
+            'id' => $id,
+            'nama' => $request->nama,
+            'deskripsi' => $request->deskripsi,
+            'dapil' => $request->dapil
+        ]);
         return Redirect('/koordinator-kecamatan')->with('sukses','data berhasill ditambahkan');;
     }
 
@@ -63,10 +70,10 @@ class KoordKecamatanController extends Controller
 
     public function viewPDF(Request $request){
         if($request->has('search')){
-            $koord_kecamatan = Koord_kecamatan::where('nama','LIKE','%' .$request->search. '%')-> paginate(3000);
+            $koord_kecamatan = Koord_kecamatan::where('nama','LIKE','%' .$request->search. '%')-> paginate(10000);
         }
         else{
-            $koord_kecamatan = Koord_kecamatan::paginate(3000);
+            $koord_kecamatan = Koord_kecamatan::paginate(10000);
         }
         return view('Koord_kecamatan.pdf', compact('koord_kecamatan'));
     }

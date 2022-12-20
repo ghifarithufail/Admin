@@ -9,7 +9,17 @@ use App\Models\Koord_kecamatan;
 class Koord_desa extends Model
 {
     use HasFactory;
-    protected $guarded = [];
+
+    public $incrementing = false;
+    
+    protected $fillable = [
+        'id',
+        'nama',
+        'deskripsi',
+        'Koord_kecamatan_id',
+        'dapil',
+    ];
+
     protected $dates = ['created_ad'];
 
     public function Koord_kecamatans(){
