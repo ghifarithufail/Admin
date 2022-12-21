@@ -12,7 +12,7 @@
                     
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Kelurahan</label>
-                        <select name="kelurahan_id" id="kelurahan" class="form-control" aria-label="Default select example">
+                        <select name="kelurahan_id" id="kelurahan" class="js-example-basic-multiple js-states form-control" aria-label="Default select example">
                             <option selected>Pilih Kelurahan</option>
                             @foreach ($dataKelurahan as $data)
                             <option value="{{$data->id}}">{{$data->kelurahan}} - {{$data->tps}}</option>

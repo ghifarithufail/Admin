@@ -66,7 +66,7 @@ class ReportController extends Controller
 
 
     public function viewPDF(){
-        $relawan = Relawan::all();
+        $relawan = Relawan::with('user','Koord_desas','Datakelurahans')->get();
         return view('data_relawan.pdf', compact('relawan'));
     }
 

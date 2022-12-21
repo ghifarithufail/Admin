@@ -51,6 +51,7 @@
                             <option value="koordinator_kecamatan">Koordinator Kecamatan</option>
                             <option value="koordinator_desa">Koordinator Desa</option>
                             <option value="relawan">Relawan</option>
+                            <option value="berita">berita</option>
                       </select>
                       @error('role')
                             <div class="alert alert-danger">{{ $message = 'Role harus di isi'}}</div>

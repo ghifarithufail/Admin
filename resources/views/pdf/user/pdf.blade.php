@@ -43,7 +43,8 @@
     @endphp
     @foreach ($user as $data => $row)
     <tr>
-        <th scope="row">{{$data + $user->firstItem()}}</th>
+        {{-- <th scope="row">{{$data + $user->firstItem()}}</th> --}}
+        <td>{{$no++}}</td>
         <td>{{$row->name}}</td>
         <td>{{$row->role}}</td>
         <td>{{$row->datarelawans->count() }}</td>

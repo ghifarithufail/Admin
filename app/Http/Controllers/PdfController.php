@@ -25,7 +25,9 @@ class PdfController extends Controller
 
     public function viewPDF(Request $request){
         if($request->has('search')){
-            $korcam = Koord_desa::where('Koord_kecamatan_id','LIKE','%' .$request->search. '%')->withCount('data_relawan')->get();
+            $korcam = Koord_desa::where('Koord_kecamatan_id','LIKE','%' .$request->search. '%')->withCount('data_relawan')
+            ->with('Datakelurahans','Koord_kecamatans')
+            ->get();
         }
         else{
             $korcam = Koord_desa::with('data_relawan','Datakelurahans','Koord_kecamatans')->get();
@@ -45,7 +47,9 @@ class PdfController extends Controller
 
     public function PDFDesa(Request $request){
         if($request->has('search')){
-            $desa = Relawan::where('Koord_desa_id','LIKE','%' .$request->search. '%')->get();
+            $desa = Relawan::where('Koord_desa_id','LIKE','%' .$request->search. '%')
+            ->with('user','Koord_desas','Datakelurahans')
+            ->get();
         }
         else{
             $desa = Relawan::with('user','Koord_desas','Datakelurahans','kecamatans')->get();
@@ -65,7 +69,7 @@ class PdfController extends Controller
 
     public function PDFkelurahan(Request $request){
         if($request->has('search')){
-            $kelurahan = DataKelurahan::where('kelurahan','LIKE','%' .$request->search. '%')->withCount('relawansData')->get();
+            $kelurahan = DataKelurahan::where('kelurahan','LIKE','%' .$request->search. '%')->with('relawansData')->get();
         }
         else{
             $kelurahan = DataKelurahan::with('relawansData')->get();
@@ -85,7 +89,7 @@ class PdfController extends Controller
 
     public function PDFUser(Request $request){
         if($request->has('search')){
-            $user = User::where('name','LIKE','%' .$request->search. '%')->withCount('datarelawans')->get();
+            $user = User::where('name','LIKE','%' .$request->search. '%')->with('datarelawans')->get();
         }
         else{
             $user = User::with('datarelawans')->get();
@@ -105,7 +109,7 @@ class PdfController extends Controller
 
     public function PDFRelawan(Request $request){
         if($request->has('search')){
-            $relawan = Relawan::where('user_id','LIKE','%' .$request->search. '%')->get();
+            $relawan = Relawan::where('user_id','LIKE','%' .$request->search. '%')->with('user','Koord_desas','Datakelurahans')->get();
         }
         else{
             $relawan = Relawan::with('user','Koord_desas','Datakelurahans')->get();

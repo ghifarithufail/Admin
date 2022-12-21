@@ -19,7 +19,7 @@ class LoginController extends Controller
 
     public function loginuser(Request $request){
         if(Auth::attempt($request->only('password','no_telpon'))){
-            return redirect('/relawan');
+            return redirect('/home');
         }
         return view('/login');
     }
@@ -32,7 +32,6 @@ class LoginController extends Controller
 
         $this->validate($request,[
             'name' => 'required',
-            'email' => 'required',
             'role' => 'required',
             'no_telpon' => 'required|unique:users,no_telpon',
             'password' => 'required',
@@ -54,7 +53,7 @@ class LoginController extends Controller
 
     public function logout(){
         Auth::logout();
-        return redirect('/login');
+        return redirect('/');
     }
 
     public function user(Request $request){

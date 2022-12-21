@@ -23,7 +23,7 @@
                     <h4 class="text-section"> Home</h4>
                 </li>
                 <li class="nav-item">
-                    <a href="/" class="collapsed" aria-expanded="false">
+                    <a href="/home" class="collapsed" aria-expanded="false">
                         <i class="fas fa-home"></i>
                         <p>Dashboard</p>
                     </a>
@@ -64,6 +64,37 @@
                         <i class="fa fa-users"></i>
                         <p>Balad Husein</p>
                     </a>
+                </li><li class="nav-section">
+                    <span class="sidebar-mini-icon">
+                        <i class="fa fa-ellipsis-h"></i>
+                    </span>
+                    <h4 class="text-section">Berita</h4>
+                </li>
+                <li class="nav-item">
+                    <a data-toggle="collapse" href="#sidebarLayouts">
+                        <i class="fas fa-th-list"></i>
+                        <p>Berita</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="sidebarLayouts">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="/artikel">
+                                    <span class="sub-item">Artikel</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/kategori">
+                                    <span class="sub-item">Kategori</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/galeri">
+                                    <span class="sub-item">Galeri</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
                 </li>
                 <li class="nav-section">
                     <span class="sidebar-mini-icon">
@@ -102,42 +133,6 @@
                         </ul>
                     </div>
                 </li>
-                {{-- <li class="nav-item">
-                    <a data-toggle="collapse" href="#form">
-                        <i class="fas fa-file"></i>
-                        <p>PDF</p>
-                        <span class="caret"></span>
-                    </a>
-                    <div class="collapse" id="form">
-                        <ul class="nav nav-collapse">
-                            <li>
-                                <a href="pdf-kelurahan">
-                                    <span class="sub-item">Kelurahan</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="pdf-koordinator-kecamatan">
-                                    <span class="sub-item">Kecamatan</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="pdf-koordinator-desa">
-                                    <span class="sub-item">Desa</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/pdf-relawan">
-                                    <span class="sub-item">Balad Husein</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="pdf-user">
-                                    <span class="sub-item">User</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li> --}}
                 <li class="nav-item">
                     <a href="/data-relawan" class="collapsed" aria-expanded="false">
                         <i class="fa fa-id-card"></i>
@@ -150,30 +145,6 @@
                         <p>Raihan Suara</p>
                     </a>
                 </li>
-                {{-- <li class="nav-section">
-                    <span class="sidebar-mini-icon">
-                        <i class="fa fa-ellipsis-h"></i>
-                    </span>
-                    <h4 class="text-section"> Informasi</h4>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="collapsed" aria-expanded="false">
-                        <i class="fa fa-info"></i>
-                        <p>Data TPS</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="collapsed" aria-expanded="false">
-                        <i class="fa fa-folder-open"></i>
-                        <p>TPS Kelurahan</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="collapsed" aria-expanded="false">
-                        <i class="fa fa-folder"></i>
-                        <p>TPS Kecamatan</p>
-                    </a>
-                </li> --}}
             </ul>
         </div>
     </div>

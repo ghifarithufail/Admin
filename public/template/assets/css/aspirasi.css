@@ -1,0 +1,127 @@
+:root{
+    --darkyellow: #F3B812;
+    --yellow: #FED323;
+    --red: #E53C38;
+    --redd: #D11D27;
+    --darkred: #A90011;
+    --white: #FFFFFF;
+    --bwhite: #FFFAEF;
+    --agrey: #F3F3F3;
+}
+/* Navbarrrrr */
+
+.navbar{
+    background-color: var(--darkred);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+
+.navbar ul li a{
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 525;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    margin: 0,5px;
+}
+
+/* ISIIII */
+
+.aspirasi{
+    max-width: 800px;
+    margin: 50px auto;
+    position: relative;
+    box-shadow: 0 10px 30px 0px rgba(0, 0, 0, 0.366);
+    padding: 30px;
+    background-color: rgba(228, 187, 20, 0.146);
+}
+
+.aspirasi .title{
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 3em;
+    line-height: 48px;
+    padding-bottom: 20px;
+    color: #A90011;
+    background: linear-gradient(to right, #F3B812 0%, #A90011 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.contact-form .form-field{
+    position: relative;
+    margin: 32px 0;
+}
+
+.contact-form .input-text{
+    display: block;
+    width: 100%;
+    height: 36px;
+    border-width: 0 0 2px 0;
+    border-color: #A90011;
+    line-height: 26px;
+    font-weight: 400;
+    background-color: rgba(228, 186, 20, 0.025);
+}
+
+.contact-form .form-control{
+    display: block;
+    width: 100%;
+    height: 36px;
+    border-width: 0 0 2px 0;
+    border-color: #A90011;
+    line-height: 26px;
+    font-weight: 400;
+    background-color: rgba(228, 186, 20, 0.025);
+}
+
+input:focus~label,
+input:valid~label,
+textarea:focus~label,
+textarea:valid~label{
+    top: -20px;
+    font-size: 14px;
+    transform: translateY(-15px);
+}
+
+.contact-form .input-text:focus{
+    outline: none;
+}
+
+.contact-form .label{
+    position: absolute;
+    left: 20px;
+    bottom: 11px;
+    font-size: 18px;
+    line-height: 26px;
+    color: #A90011;
+    cursor: text;
+    text-transform: capitalize;
+    transition: transform 0.2s ease-in-out;
+}
+
+.kirim{
+    display: inline-block;
+    background-image: linear-gradient(125deg, #f3b812,#a90011);
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 16px;
+    padding: 8px 16px;
+    border: none; 
+    cursor: pointer;
+}
+
+.banner{
+    background: linear-gradient(rgba(161, 0, 0, 0.797),rgba(0, 0, 0, 0.617)), url('/template/assets/images/lagibaksos.jpeg') ,no-repeat center center;
+    background-size: cover;
+    padding-top: 10%;
+    padding-bottom: 100px;
+    color: var(--darkyellow);    
+}
+
+/* FOOTER */
+/*  */

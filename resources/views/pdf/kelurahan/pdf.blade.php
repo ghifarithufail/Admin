@@ -32,8 +32,8 @@
 <table id="customers">
     <tr>
         <th scope="col">No</th>
-        <th scope="col">ID</th>
         <th scope="col">Kelurahan</th>
+        <th scope="col">ID</th>
         <th scope="col">Dapil</th>
         <th scope="col">TPS</th>
         <th scope="col">DPT</th>
@@ -47,9 +47,10 @@
     @endphp
     @foreach ($kelurahan as $data => $row)
     <tr>
-        <th scope="row">{{$data + $kelurahan->firstItem()}}</th>
-        <td>{{$row->id}}</td>
+        {{-- <th scope="row">{{$data + $kelurahan->firstItem()}}</th> --}}
+        <td>{{$no++}}</td>
         <td>{{$row->kelurahan}}</td>
+        <td>{{$row->id}}</td>
         <td>{{$row->dapil}}</td>
         <td>{{$row->tps}}</td>
         <td>{{$row->jumlah}}</td>

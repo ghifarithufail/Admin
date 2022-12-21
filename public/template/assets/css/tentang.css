@@ -1,0 +1,55 @@
+:root{
+    --darkyellow: #F3B812;
+    --yellow: #FED323;
+    --red: #E53C38;
+    --redd: #D11D27;
+    --darkred: #A90011;
+    --white: #FFFFFF;
+    --bwhite: #FFFAEF;
+    --agrey: #F3F3F3;
+}
+
+/* NAVBARRRRR */
+
+.navbar{
+    background-color: var(--darkred);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+
+.navbar ul li a{
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 525;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    margin: 0,5px;
+}
+
+/* ISIIII */
+
+.banner{
+    background: linear-gradient(rgba(161, 0, 0, 0.797),rgba(0, 0, 0, 0.617)), url('/template/assets/images/lagibaksos.jpeg') ,no-repeat center center;
+    background-size: cover;
+    padding-top: 10%;
+    padding-bottom: 100px;
+    color: var(--darkyellow);    
+}
+
+.isi{
+    background-color:rgba(228, 187, 20, 0.146);
+}
+
+h2{
+color: #a90011df;
+}
+
+.kata{
+    color: #a90011df;
+}
+
+footer{
+    background-color: #A90011;
+}

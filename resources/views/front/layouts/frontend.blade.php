@@ -81,10 +81,11 @@
                                     In dignissim justo ut ex feugiat aliquet. Mauris convallis mollis lobortis. Quisque elit libero, semper et nisl at, placerat porttitor massa. Etiam faucibus tortor a sodales convallis. Cras in turpis interdum, rutrum ante eu, fermentum mi. 
                                     Ut justo quam, ullamcorper at sapien vitae, tincidunt fringilla ligula. Etiam cursus commodo porta.</p>
                             </div>
-                        
+                        <a href="/tentangSaya">
                             <div class="mt-5 mb-3 text-md-start text-sm-start text-xl-start text-lg-start" data-aos="zoom-out-right">
                                 <button class="main-btn rounded-2 text-capitalize">Lebih lanjut</button>
                             </div>
+                        </a>
                         </div>
                         <div class="foto col-xl-4 col-lg-5 col-md-6 col-sm-6 mt-5 mb-5 align-items-sm-center" data-aos="zoom-out-left">
                             <img src="{{asset('template\assets/images/husein_bndr.jpeg')}}" class="rounded img-fluid"  alt="...">

@@ -1,6 +1,11 @@
 <?php
 
 use App\Http\Controllers\ContohController;
+use App\Http\Controllers\FrontEnd\ArtikelController;
+use App\Http\Controllers\FrontEnd\AspirasiController;
+use App\Http\Controllers\FrontEnd\FrontEndController;
+use App\Http\Controllers\FrontEnd\GaleriController;
+use App\Http\Controllers\FrontEnd\KategoriController;
 use App\Http\Controllers\KoordDesaController;
 use App\Http\Controllers\KoordKecamatanController;
 use App\Http\Controllers\LoginController;
@@ -21,7 +26,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view('home');
 })->middleware('auth');;
 
@@ -64,7 +69,7 @@ Route::post('/udpateDR/{id}',[ReportController::class, 'udpateDR'] )->name('udpa
 
 
 // ------------------------------ REPORT DASHBOARD  ---------------------------------- //
-Route::get('/', [ReportController::class, 'allData'])->middleware('auth','hakakses:admin');;
+Route::get('/home', [ReportController::class, 'allData'])->middleware('auth');
 Route::get('/data-desa', [ReportController::class, 'dataDesa'])->middleware('auth');;
 
 
@@ -193,3 +198,45 @@ Route::get('/deleteKD/{id}',[KoordDesaController::class, 'deleteKD'] )->name('de
 
 //PDF
 Route::post('/pdf-kordes', [KoordDesaController::class, 'viewPDF'])->name('viewPDF')->middleware('auth','hakakses:admin');
+
+
+// --------------------------------------------------- FRONT END ------------------------------------- //
+
+Route::get('/', [FrontEndController::class, 'index']);
+
+Route::get('/tentangSaya', [FrontEndController::class, 'tentang'])->name('tentangSaya');
+
+Route::get('/contact', [FrontEndController::class, 'contact'])->name('contact');
+
+Route::get('/berita', [FrontEndController::class, 'berita'])->name('berita');
+
+Route::get('/galerii', [FrontEndController::class, 'galerii'])->name('galerii');
+
+Route::get('/aspirasii', [AspirasiController::class, 'aspirasii'])->name('aspirasii');
+
+Route::post('/aspirasi-store', [AspirasiController::class, 'store'])->name('store');
+
+Route::get('/detail-artikel/{judul}', [FrontEndController::class, 'detail'])->name('detail-artikel');
+
+
+    Route::get('/default', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth','hakakses:admin,berita');;
+
+
+    Route::get('/aspirasi-data', [AspirasiController::class, 'show'])->name('show');
+
+    Route::get('/deleteAS/{id}', [AspirasiController::class, 'deleteAS'])->name('deleteAS');
+
+    Route::resource('/kategori', KategoriController::class);
+
+    Route::resource('/artikel', ArtikelController::class);
+
+    Route::resource('/galeri', GaleriController::class);
+
+
+
+// Route::get('/login', [LoginController::class, 'login'])->name('login');
+// Route::post('/loginuser', [LoginController::class, 'loginuser'])->name('loginuser');
+
+
+// Route::get('/register', [LoginController::class, 'register'])->name('register');
+// Route::post('/registeruser', [LoginController::class, 'registeruser'])->name('registeruser');
