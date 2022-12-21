@@ -46,23 +46,24 @@ class ReportController extends Controller
 
     public function dataRelawan(Request $request){
         if($request->has('search')){
-            $relawan = Relawan::where('user_id','LIKE','%' .$request->search. '%')->paginate(50);
+            $relawan = Relawan::where('user_id','LIKE','%' .$request->search. '%')->paginate(6000);
         }
         else{
-            $relawan = Relawan::with('user','Koord_desas','Datakelurahans')->paginate(50);
+            $relawan = Relawan::with('user','Koord_desas','Datakelurahans')->paginate(20);
         }
         return view('data_relawan.index', compact('relawan'));
     }
 
     public function dataRelawans(Request $request){
         if($request->has('search')){
-            $relawan = Relawan::where('nama','LIKE','%' .$request->search. '%')->paginate(50);
+            $relawan = Relawan::where('nama','LIKE','%' .$request->search. '%')->paginate(20);
         }
         else{
-            $relawan = Relawan::with('user','Koord_desas','Datakelurahans')->paginate(50);
+            $relawan = Relawan::with('user','Koord_desas','Datakelurahans')->paginate(20);
         }
         return view('data_relawan.index', compact('relawan'));
     }
+
 
     public function viewPDF(){
         $relawan = Relawan::all();

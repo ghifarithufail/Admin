@@ -63,7 +63,7 @@
                         <div class="card-body pb-0 kartu">
                           <div class="h1 fw-bold float-right text-white">{{$jumlahrelawan}}</div>
                           <i class="fa fa-users fa-2x ml-1 text-white"></i>
-                          <h2 class="mt-2 sub-judul text-white">RELAWAN</h2>
+                          <h2 class="mt-2 sub-judul text-white">BALAD HUSEIN</h2>
                           <div class="pull-in sparkline-fix chart-as-background">
                             <div id="lineChart3"><canvas width="327" height="70" style="display: inline-block; width: 327px; height: 70px; vertical-align: top;"></canvas></div>
                           </a>
@@ -87,7 +87,7 @@
     </div>
   </div>
 </div>
-<div class="card mt-5">
+{{-- <div class="card mt-5">
   <div class="card-body">
     <h1 class="text-center">DATA DETAIL</h1>
     <form action="/" method="GET">
@@ -123,7 +123,7 @@
         </tbody>
     </table>
   </div>
-</div>
+</div> --}}
 
 </div>
   {{$desa->links()}}
@@ -145,7 +145,7 @@
         type: 'column'
     },
     title : {
-      text: 'JUMLAH RELAWAN'
+      text: 'JUMLAH BALAD HUSEIN'
     },
     xAxis : {
       categories: ['Desember','Januari','Februari','Maret','April',
@@ -153,7 +153,7 @@
     },
     yAxis : {
       title: {
-        text : 'Angka relawan'
+        text : 'Angka Balad Husein'
       }
     },
     plotOption: {
@@ -163,7 +163,7 @@
     },
     series: [
       {
-        name: 'relawan',
+        name: 'Balad Husein',
         data: relawan,
       }
     ]

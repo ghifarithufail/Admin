@@ -25,10 +25,10 @@ class PdfController extends Controller
 
     public function viewPDF(Request $request){
         if($request->has('search')){
-            $korcam = Koord_desa::where('Koord_kecamatan_id','LIKE','%' .$request->search. '%')->withCount('data_relawan')->paginate(4000);
+            $korcam = Koord_desa::where('Koord_kecamatan_id','LIKE','%' .$request->search. '%')->withCount('data_relawan')->get();
         }
         else{
-            $korcam = Koord_desa::with('data_relawan','Datakelurahans','Koord_kecamatans')->paginate(4000);
+            $korcam = Koord_desa::with('data_relawan','Datakelurahans','Koord_kecamatans')->get();
         }
         return view('pdf.korcam.pdf', compact('korcam'));
     }
@@ -45,10 +45,10 @@ class PdfController extends Controller
 
     public function PDFDesa(Request $request){
         if($request->has('search')){
-            $desa = Relawan::where('Koord_desa_id','LIKE','%' .$request->search. '%')->paginate(6000);
+            $desa = Relawan::where('Koord_desa_id','LIKE','%' .$request->search. '%')->get();
         }
         else{
-            $desa = Relawan::with('user','Koord_desas','Datakelurahans','kecamatans')->paginate(6000);
+            $desa = Relawan::with('user','Koord_desas','Datakelurahans','kecamatans')->get();
         }
         return view('pdf.kordes.pdf', compact('desa'));
     }
@@ -65,10 +65,10 @@ class PdfController extends Controller
 
     public function PDFkelurahan(Request $request){
         if($request->has('search')){
-            $kelurahan = DataKelurahan::where('kelurahan','LIKE','%' .$request->search. '%')->withCount('relawansData')->paginate(6000);
+            $kelurahan = DataKelurahan::where('kelurahan','LIKE','%' .$request->search. '%')->withCount('relawansData')->get();
         }
         else{
-            $kelurahan = DataKelurahan::with('relawansData')->paginate(6000);
+            $kelurahan = DataKelurahan::with('relawansData')->get();
         }
         return view('pdf.kelurahan.pdf',compact('kelurahan'));
     }
@@ -85,10 +85,10 @@ class PdfController extends Controller
 
     public function PDFUser(Request $request){
         if($request->has('search')){
-            $user = User::where('name','LIKE','%' .$request->search. '%')->withCount('datarelawans')->paginate(5000);
+            $user = User::where('name','LIKE','%' .$request->search. '%')->withCount('datarelawans')->get();
         }
         else{
-            $user = User::with('datarelawans')->paginate(5000);
+            $user = User::with('datarelawans')->get();
         }
         return view('pdf.user.pdf',compact('user'));
     }
@@ -105,10 +105,10 @@ class PdfController extends Controller
 
     public function PDFRelawan(Request $request){
         if($request->has('search')){
-            $relawan = Relawan::where('user_id','LIKE','%' .$request->search. '%')->paginate(5000);
+            $relawan = Relawan::where('user_id','LIKE','%' .$request->search. '%')->get();
         }
         else{
-            $relawan = Relawan::with('user','Koord_desas','Datakelurahans')->paginate(5000);
+            $relawan = Relawan::with('user','Koord_desas','Datakelurahans')->get();
         }
         return view('pdf.relawan.pdf',compact('relawan'));
     }

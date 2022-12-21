@@ -1,6 +1,6 @@
 @extends('layout.default')
 @section('content')
-
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 <body>
     
     <h1 class="text-center mb-4 mt-5">Tambah Data Koordinator Desa</h1>
@@ -20,10 +20,10 @@
                     
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Koordinator Kecamatan</label>
-                        <select name="Koord_kecamatan_id" class="form-control" aria-label="Default select example">
+                        <select name="Koord_kecamatan_id" id="kecamatan" data-width="100%" class="js-example-basic-multiple js-states form-control" aria-label="Default select example">
                           <option selected>Pilih Koordinator Kecamatan</option>
                           @foreach ($dataKoord_kecamatan as $data)
-                          <option value="{{$data->id}}">{{$data->nama}} - {{$data->deskripsi}} - {{$data->desa}}</option>
+                          <option value="{{$data->id}}">{{$data->nama}} - {{$data->deskripsi}}</option>
                           @endforeach
                         </select>
                       </div>
@@ -50,7 +50,19 @@
                 </form>
               </div>
             </div>
-          </div>
+          </div>    
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+          
+          
+          <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+          <script>
+            $(document).ready(function(){
+                $("#kecamatan").select2({
+                    // theme: "classic"
+                });
+            });
+        </script>
 </body>
 
 @endsection

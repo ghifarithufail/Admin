@@ -25,6 +25,10 @@ Route::get('/', function () {
     return view('home');
 })->middleware('auth');;
 
+Route::get('/error', function () {
+    return view('error');
+});
+
 // ------------------------------ PDF  ---------------------------------- //
 //PDF KORCAM
 Route::get('/pdf-koordinator-kecamatan', [PdfController::class, 'korcam'])->name('koord_kecamatan')->middleware('auth','hakakses:admin,koordinator_kecamatan');;
@@ -47,7 +51,6 @@ Route::get('/pdf-relawan', [PdfController::class, 'relawan'])->middleware('auth'
 Route::post('/pdf-relawan-detail', [PdfController::class, 'PDFRelawan'])->middleware('auth','hakakses:admin');
 
 // ------------------------------ REPORT DATA RELAWAN  ---------------------------------- //
-
 //PDF
 Route::post('/pdf-data-relawan', [ReportController::class, 'viewPDF'])->name('viewPDF');
 
