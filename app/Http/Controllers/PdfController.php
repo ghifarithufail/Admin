@@ -25,8 +25,8 @@ class PdfController extends Controller
 
     public function viewPDF(Request $request){
         if($request->has('search')){
-            $korcam = Koord_desa::where('Koord_kecamatan_id','LIKE','%' .$request->search. '%')->withCount('data_relawan')
-            ->with('Datakelurahans','Koord_kecamatans')
+            $korcam = Koord_desa::where('Koord_kecamatan_id','LIKE','%' .$request->search. '%')
+            ->with('Datakelurahans','Koord_kecamatans','data_relawan')
             ->get();
         }
         else{
@@ -112,7 +112,7 @@ class PdfController extends Controller
             $relawan = Relawan::where('user_id','LIKE','%' .$request->search. '%')->with('user','Koord_desas','Datakelurahans')->get();
         }
         else{
-            $relawan = Relawan::with('user','Koord_desas','Datakelurahans')->get();
+            $relawan = Relawan::with('user','Koord_desas','Datakelurahans','korcam')->get();
         }
         return view('pdf.relawan.pdf',compact('relawan'));
     }

@@ -93,6 +93,11 @@
                                     <span class="sub-item">Galeri</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/aspirasi-data">
+                                    <span class="sub-item">Aspirasi</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </li>

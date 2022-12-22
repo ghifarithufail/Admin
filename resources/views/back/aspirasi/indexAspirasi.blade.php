@@ -5,7 +5,7 @@
         width: 90px;
     }
 </style>
-    <div class="panel-header bg-danger">
+    <div class="panel-header">
         <div class="page-inner py-5">
             <div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
             </div>

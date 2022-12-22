@@ -62,6 +62,7 @@ Route::post('/pdf-data-relawan', [ReportController::class, 'viewPDF'])->name('vi
 //GET
 Route::get('/data-relawan', [ReportController::class, 'dataRelawan'])->middleware('auth','hakakses:admin');;
 Route::get('/data-relawans', [ReportController::class, 'dataRelawans'])->middleware('auth','hakakses:admin');;
+Route::get('/data-relawan-verifikasi', [ReportController::class, 'verifikasi'])->middleware('auth','hakakses:admin');;
 
 // //UPDATE
 Route::get('/relawan-data-update/{id}',[ReportController::class, 'getDataRelawan'])->name('getDataRelawan')->name('getDataRelawan')->middleware('auth','hakakses:admin');;
@@ -218,6 +219,9 @@ Route::post('/aspirasi-store', [AspirasiController::class, 'store'])->name('stor
 
 Route::get('/detail-artikel/{judul}', [FrontEndController::class, 'detail'])->name('detail-artikel');
 
+Route::group(['middleware' => ['auth','hakakses:admin,berita']], function(){
+
+
 
     Route::get('/default', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth','hakakses:admin,berita');;
 
@@ -232,7 +236,7 @@ Route::get('/detail-artikel/{judul}', [FrontEndController::class, 'detail'])->na
 
     Route::resource('/galeri', GaleriController::class);
 
-
+});
 
 // Route::get('/login', [LoginController::class, 'login'])->name('login');
 // Route::post('/loginuser', [LoginController::class, 'loginuser'])->name('loginuser');

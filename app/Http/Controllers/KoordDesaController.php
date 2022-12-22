@@ -80,7 +80,7 @@ class KoordDesaController extends Controller
     }
 
     public function viewPDF(){
-        $Koord_desa = Koord_desa::all();
+        $Koord_desa = Koord_desa::with('data_relawan','Koord_kecamatans')->get();
         return view('koord_desa.pdf', compact('Koord_desa'));
     }
 }

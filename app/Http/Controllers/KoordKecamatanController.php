@@ -70,10 +70,10 @@ class KoordKecamatanController extends Controller
 
     public function viewPDF(Request $request){
         if($request->has('search')){
-            $koord_kecamatan = Koord_kecamatan::where('nama','LIKE','%' .$request->search. '%')-> paginate(10000);
+            $koord_kecamatan = Koord_kecamatan::where('nama','LIKE','%' .$request->search. '%')-> paginate(50000);
         }
         else{
-            $koord_kecamatan = Koord_kecamatan::paginate(10000);
+            $koord_kecamatan = Koord_kecamatan::paginate(50000);
         }
         return view('Koord_kecamatan.pdf', compact('koord_kecamatan'));
     }

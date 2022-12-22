@@ -29,7 +29,7 @@
         <form action="/data-relawan" method="GET">
           <input type="search" id="inputPassword6" placeholder="Cari data User dengan user ID" name="search" class="form-control ml-3" aria-describedby="passwordHelpInline">
         </form>
-        <form action="//verifikasi-data-relawan" method="GET">
+        <form action="/data-relawan-verifikasi" method="GET">
           <input type="search" id="inputPassword6" placeholder="cek Verifikasi iya, tidak atau belum" name="search" class="form-control ml-3" aria-describedby="passwordHelpInline">
         </form>
       </div>

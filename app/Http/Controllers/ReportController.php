@@ -64,6 +64,16 @@ class ReportController extends Controller
         return view('data_relawan.index', compact('relawan'));
     }
 
+    public function verifikasi(Request $request){
+        if($request->has('search')){
+            $relawan = Relawan::where('is_visible','LIKE','%' .$request->search. '%')->paginate(10000);
+        }
+        else{
+            $relawan = Relawan::with('user','Koord_desas','Datakelurahans')->paginate(20);
+        }
+        return view('data_relawan.index', compact('relawan'));
+    }
+
 
     public function viewPDF(){
         $relawan = Relawan::with('user','Koord_desas','Datakelurahans')->get();
@@ -123,7 +133,7 @@ class ReportController extends Controller
     }
 
     public function viewPDFKecamatan(){
-        $kecamatan = Koord_kecamatan::with('relawans')->get();
+        $kecamatan = Koord_kecamatan::with('relawans','desas')->get();
         return view('report.kecamatan.pdf', compact('kecamatan'));
     }
 
